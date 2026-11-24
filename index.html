@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#080d18" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="TerraNest" />
+  <meta name="description" content="TerraNest Luxury Properties and Homes — Verified Global Real Estate to Buy, Rent, and Lease Across All Continents." />
+  <title>TerraNest Luxury Properties and Homes | Verified Global Real Estate</title>
+  <!-- Dynamic PWA Manifest & Apple Touch Icon injected via inline script on load -->
+  <link id="dynamicManifest" rel="manifest" />
+  <link id="appleTouchIcon" rel="apple-touch-icon" />
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & LUXURY THEME SYSTEM
+       ========================================================================== */
+    :root {
+      --bg-navy: #080d18;
+      --bg-navy-elevated: #0f172a;
+      --bg-navy-card: #141f38;
+      --bg-ivory: #f8f7f4;
+      --bg-white: #ffffff;
+      --gold: #d4af37;
+      --gold-light: #ebd07a;
+      --gold-dark: #a6831e;
+      --emerald: #10b981;
+      --emerald-bg: rgba(16, 185, 129, 0.12);
+      --emerald-border: rgba(16, 185, 129, 0.35);
+      --whatsapp: #25d366;
+      --whatsapp-dark: #1ebe5d;
+      --text-dark: #0f172a;
+      --text-muted: #526077;
+      --text-light: #f8fafc;
+      --text-light-muted: #94a3b8;
+      --border-light: #e4e1d8;
+      --border-dark: rgba(255, 255, 255, 0.1);
+      --shadow-sm: 0 4px 14px rgba(8, 13, 24, 0.06);
+      --shadow-md: 0 14px 32px rgba(8, 13, 24, 0.11);
+      --shadow-lg: 0 24px 54px rgba(8, 13, 24, 0.22);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --font-serif: "Georgia", "Times New Roman", "Palatino Linotype", serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --transition: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* ==========================================================================
+       2. RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-ivory);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button, input, select {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .serif {
+      font-family: var(--font-serif);
+    }
+
+    /* ==========================================================================
+       3. STICKY HEADER & NAVIGATION
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 13, 24, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
+      color: var(--text-light);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.38rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--text-light);
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.65rem;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-light-muted);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .currency-select-wrap {
+      display: flex;
+      align-items: center;
+      background: var(--bg-navy-elevated);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 0.38rem 0.65rem;
+    }
+
+    .currency-select {
+      background: transparent;
+      color: var(--gold-light);
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .currency-select option {
+      background: var(--bg-navy);
+      color: var(--text-light);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #080d18;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.64rem 1.2rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.38);
+    }
+
+    .btn-outline-gold {
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 0.84rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-outline-gold:hover {
+      background: rgba(212, 175, 55, 0.14);
+      color: #ffffff;
+    }
+
+    .mobile-toggle {
+      display: none;
+      color: var(--text-light);
+      padding: 0.4rem;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--bg-navy-elevated);
+      padding: 1.25rem;
+      border-top: 1px solid var(--border-dark);
+      gap: 0.9rem;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: var(--text-light);
+      font-weight: 600;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION & GLOBAL SEARCH FILTER
+       ========================================================================== */
+    .hero {
+      position: relative;
+      background: radial-gradient(circle at 80% 20%, #162442 0%, #080d18 68%);
+      color: var(--text-light);
+      padding: 4rem 0 4.5rem;
+      overflow: hidden;
+    }
+
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--emerald-bg);
+      border: 1px solid var(--emerald-border);
+      color: #6ee7b7;
+      padding: 0.42rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.35rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.05rem, 4.7vw, 3.55rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-title span {
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.98rem, 1.7vw, 1.12rem);
+      color: var(--text-light-muted);
+      max-width: 740px;
+      margin: 0 auto 2.25rem;
+    }
+
+    /* Quick Category Jump Bar + Global Search */
+    .search-box {
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-lg);
+      text-align: left;
+      color: var(--text-dark);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+    }
+
+    .quick-jump-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .jump-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .jump-pill {
+      padding: 0.48rem 1.05rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.86rem;
+      font-weight: 700;
+      background: var(--bg-ivory);
+      color: var(--text-dark);
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+
+    .jump-pill:hover {
+      background: var(--bg-navy);
+      color: var(--gold-light);
+      border-color: var(--bg-navy);
+    }
+
+    .search-fields {
+      display: grid;
+      grid-template-columns: 1.2fr 1.6fr auto auto;
+      gap: 0.85rem;
+      align-items: end;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .field-group label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+
+    .field-control {
+      width: 100%;
+      height: 46px;
+      padding: 0 0.9rem;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      background: var(--bg-ivory);
+      color: var(--text-dark);
+      font-size: 0.93rem;
+      font-weight: 500;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .field-control:focus {
+      border-color: var(--gold);
+      background: var(--bg-white);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.16);
+    }
+
+    .search-submit {
+      height: 46px;
+      padding: 0 1.45rem;
+      background: var(--bg-navy);
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 0.92rem;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      transition: var(--transition);
+    }
+
+    .search-submit:hover {
+      background: #182542;
+      transform: translateY(-1px);
+    }
+
+    .reset-filter-btn {
+      height: 46px;
+      padding: 0 1rem;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .reset-filter-btn:hover {
+      border-color: var(--gold-dark);
+      color: var(--text-dark);
+    }
+
+    /* Trust Strip */
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+      padding-top: 1.85rem;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    .trust-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       5. DEDICATED BUY, RENT, AND LEASE SECTIONS + PAGINATION
+       ========================================================================== */
+    .catalog-section {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .catalog-section.alt-bg {
+      background: #f1efe9;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.25rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold-dark);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      max-width: 620px;
+    }
+
+    .page-indicator-badge {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--bg-navy);
+      background: var(--bg-white);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* 5-Card Responsive Grid (Desktop displays clean 5-item showcase) */
+    .properties-grid-5 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+      gap: 1.35rem;
+    }
+
+    @media (min-width: 1200px) {
+      .properties-grid-5 {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    /* Property Card (Fully Clickable) */
+    .prop-card {
+      background: var(--bg-white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .prop-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold);
+    }
+
+    .prop-media {
+      position: relative;
+      height: 195px;
+      overflow: hidden;
+      background: var(--bg-navy);
+    }
+
+    .prop-media svg,
+    .prop-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .prop-card:hover .prop-media svg,
+    .prop-card:hover .prop-media img {
+      transform: scale(1.06);
+    }
+
+    .badge-top-left {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+    }
+
+    .listing-badge {
+      padding: 0.26rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .badge-buy {
+      background: var(--bg-navy);
+      color: var(--gold-light);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+    }
+
+    .badge-rent {
+      background: var(--gold);
+      color: #080d18;
+    }
+
+    .badge-lease {
+      background: #1e3a8a;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .photo-count-pill {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      background: rgba(8, 13, 24, 0.78);
+      backdrop-filter: blur(4px);
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.24rem 0.58rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .verified-ribbon {
+      position: absolute;
+      bottom: 8px;
+      left: 10px;
+      z-index: 2;
+      background: rgba(8, 13, 24, 0.88);
+      color: #6ee7b7;
+      border: 1px solid var(--emerald-border);
+      padding: 0.22rem 0.55rem;
+      border-radius: 5px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .prop-body {
+      padding: 1.05rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .prop-location {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gold-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .prop-title {
+      font-family: var(--font-serif);
+      font-size: 1.06rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.45rem;
+      line-height: 1.3;
+    }
+
+    .prop-price {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--bg-navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .prop-price span {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .prop-specs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 0.85rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .prop-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .btn-view-photos {
+      width: 100%;
+      background: var(--bg-navy);
+      color: var(--gold-light);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.56rem 0.75rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .prop-card:hover .btn-view-photos {
+      background: var(--gold);
+      color: #080d18;
+    }
+
+    /* Pagination Bar */
+    .pagination-bar {
+      margin-top: 2.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+    }
+
+    .page-btn {
+      min-width: 42px;
+      height: 42px;
+      padding: 0 0.95rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      color: var(--text-dark);
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .page-btn:hover:not(:disabled) {
+      border-color: var(--gold);
+      background: var(--bg-navy);
+      color: var(--gold-light);
+    }
+
+    .page-btn.active {
+      background: var(--bg-navy);
+      color: var(--gold-light);
+      border-color: var(--gold);
+      box-shadow: 0 4px 12px rgba(8, 13, 24, 0.2);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.42;
+      cursor: not-allowed;
+    }
+
+    /* ==========================================================================
+       6. 4-STEP VERIFICATION & CONTINENT EXPLORER
+       ========================================================================== */
+    .trust-section {
+      background: var(--bg-navy);
+      color: var(--text-light);
+      padding: 4.5rem 0;
+    }
+
+    .trust-section .section-title {
+      color: var(--text-light);
+    }
+
+    .trust-section .section-eyebrow {
+      color: var(--gold);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .pillar-card {
+      background: var(--bg-navy-elevated);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 1.85rem 1.5rem;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .pillar-card:hover {
+      border-color: rgba(212, 175, 55, 0.45);
+      transform: translateY(-4px);
+    }
+
+    .pillar-step {
+      position: absolute;
+      top: 1.35rem;
+      right: 1.35rem;
+      font-family: var(--font-serif);
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: rgba(212, 175, 55, 0.18);
+    }
+
+    .pillar-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--emerald-bg);
+      border: 1px solid var(--emerald-border);
+      color: var(--emerald);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.15rem;
+    }
+
+    .pillar-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-light);
+    }
+
+    .pillar-card p {
+      font-size: 0.9rem;
+      color: var(--text-light-muted);
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       7. FOOTER
+       ========================================================================== */
+    .footer {
+      background: #050810;
+      color: var(--text-light-muted);
+      padding: 4rem 0 2rem;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 2.25rem;
+      margin-bottom: 2.75rem;
+    }
+
+    .footer-brand-desc {
+      margin-top: 0.9rem;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      max-width: 340px;
+    }
+
+    .footer h5 {
+      color: var(--text-light);
+      font-size: 0.94rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.86rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.82rem;
+    }
+
+    /* ==========================================================================
+       8. 10-PHOTO GALLERY & WHATSAPP PURCHASE/RENT/LEASE MODAL
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(5, 8, 16, 0.86);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem;
+      overflow-y: auto;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--bg-white);
+      color: var(--text-dark);
+      width: 100%;
+      max-width: 980px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      max-height: 94vh;
+      display: flex;
+      flex-direction: column;
+      animation: modalIn 0.25s ease-out;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(16px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-header {
+      background: var(--bg-navy);
+      color: var(--text-light);
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-dark);
+      gap: 1rem;
+    }
+
+    .modal-close {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--text-light);
+      font-size: 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover {
+      background: var(--gold);
+      color: #080d18;
+    }
+
+    .modal-body {
+      padding: 1.4rem;
+      overflow-y: auto;
+    }
+
+    /* 10-Photo Interactive Gallery Viewer */
+    .gallery-stage {
+      position: relative;
+      width: 100%;
+      height: 340px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-navy);
+      border: 1px solid var(--border-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .gallery-stage svg,
+    .gallery-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(8, 13, 24, 0.78);
+      color: var(--gold-light);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      z-index: 5;
+      transition: var(--transition);
+    }
+
+    .gallery-nav-btn:hover {
+      background: var(--gold);
+      color: #080d18;
+    }
+
+    .gallery-prev { left: 12px; }
+    .gallery-next { right: 12px; }
+
+    .gallery-caption-bar {
+      position: absolute;
+      bottom: 0;
+      inset-inline: 0;
+      background: linear-gradient(transparent, rgba(8, 13, 24, 0.92));
+      color: #ffffff;
+      padding: 1.5rem 1rem 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .thumb-strip {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 0.45rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .thumb-item {
+      height: 54px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.65;
+      transition: var(--transition);
+      background: var(--bg-navy);
+    }
+
+    .thumb-item:hover,
+    .thumb-item.active {
+      opacity: 1;
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .thumb-item svg,
+    .thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .modal-details-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .audit-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .audit-box h4 {
+      color: #065f46;
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audit-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: #047857;
+      font-weight: 600;
+    }
+
+    .amenities-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.55rem;
+    }
+
+    .amenity-tag {
+      background: var(--bg-ivory);
+      border: 1px solid var(--border-light);
+      padding: 0.3rem 0.68rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .whatsapp-action-card {
+      background: var(--bg-navy);
+      color: var(--text-light);
+      border-radius: var(--radius-md);
+      padding: 1.35rem;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+    }
+
+    .btn-whatsapp-cta {
+      width: 100%;
+      background: var(--whatsapp);
+      color: #052e16;
+      font-weight: 800;
+      font-size: 0.96rem;
+      padding: 0.92rem 1.2rem;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      transition: var(--transition);
+      box-shadow: 0 8px 22px rgba(37, 211, 102, 0.32);
+      margin-top: 1rem;
+    }
+
+    .btn-whatsapp-cta:hover {
+      background: var(--whatsapp-dark);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       9. FLOATING WHATSAPP WIDGET & PWA APP INSTALL POP-UP
+       ========================================================================== */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 1500;
+      background: var(--whatsapp);
+      color: #052e16;
+      padding: 0.78rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.42);
+      border: 2px solid #ffffff;
+      transition: var(--transition);
+    }
+
+    .floating-whatsapp:hover {
+      transform: translateY(-3px) scale(1.03);
+      background: var(--whatsapp-dark);
+      color: #ffffff;
+    }
+
+    /* PWA Install Pop-up Banner */
+    .pwa-popup {
+      position: fixed;
+      bottom: 22px;
+      left: 22px;
+      z-index: 1800;
+      width: calc(100% - 44px);
+      max-width: 410px;
+      background: var(--bg-navy);
+      color: var(--text-light);
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.48);
+      display: none;
+      animation: slideUpPwa 0.35s ease-out;
+    }
+
+    .pwa-popup.show {
+      display: block;
+    }
+
+    @keyframes slideUpPwa {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pwa-popup-top {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .pwa-popup-actions {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 0.65rem;
+    }
+
+    .btn-not-now {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-light-muted);
+      font-weight: 700;
+      font-size: 0.86rem;
+      padding: 0.64rem 0.9rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .btn-not-now:hover {
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+    }
+
+    /* Manual Browser Install Guide Modal */
+    .install-step-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin: 1rem 0;
+    }
+
+    .install-step-list li {
+      background: var(--bg-ivory);
+      border: 1px solid var(--border-light);
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .step-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--bg-navy);
+      color: var(--gold-light);
+      font-weight: 800;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .toast-notice {
+      position: fixed;
+      top: 90px;
+      right: 22px;
+      z-index: 3000;
+      background: var(--bg-navy);
+      color: var(--text-light);
+      border-left: 4px solid var(--emerald);
+      padding: 0.9rem 1.25rem;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg);
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: none;
+      align-items: center;
+      gap: 0.65rem;
+      max-width: 370px;
+    }
+
+    .toast-notice.show {
+      display: flex;
+    }
+
+    /* ==========================================================================
+       10. RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .search-fields {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .modal-details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav-links, .nav-desktop-only {
+        display: none;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .trust-strip {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+      }
+      .trust-item {
+        justify-content: flex-start;
+      }
+      .thumb-strip {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .gallery-stage {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .search-fields {
+        grid-template-columns: 1fr;
+      }
+      .trust-strip {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .audit-list {
+        grid-template-columns: 1fr;
+      }
+      .floating-whatsapp span {
+        display: none;
+      }
+      .floating-whatsapp {
+        padding: 0.9rem;
+        border-radius: 50%;
+      }
+      .pwa-popup {
+        left: 12px;
+        bottom: 12px;
+        width: calc(100% - 24px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       STICKY HEADER
+       ======================================================================== -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="brand" aria-label="TerraNest Home">
+        <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="44" height="44" rx="11" fill="#0f172a" stroke="#d4af37" stroke-width="2"/>
+          <path d="M24 10L10 21H15V36H33V21H38L24 10Z" stroke="#d4af37" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M20 36V26H28V36" stroke="#ebd07a" stroke-width="2"/>
+          <circle cx="35" cy="14" r="5" fill="#10b981" stroke="#080d18" stroke-width="1.5"/>
+          <path d="M33 14L34.4 15.4L37.2 12.6" stroke="#080d18" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">TerraNest</span>
+          <span class="brand-sub">Luxury Properties &amp; Homes</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#buy-section">Buy Homes</a>
+        <a href="#rent-section">Rent Homes</a>
+        <a href="#lease-section">Lease Properties</a>
+        <a href="#verification">Verification</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="currency-select-wrap" title="Switch Display Currency">
+          <select id="currencySelector" class="currency-select" aria-label="Select Currency">
+            <option value="USD">USD ($)</option>
+            <option value="NGN">NGN (₦)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+          </select>
+        </div>
+
+        <button class="btn-outline-gold nav-desktop-only" onclick="triggerAppInstall()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Install App
+        </button>
+
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Menu">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M3 6h18M3 12h18M3 18h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#buy-section" onclick="closeMobileMenu()">Buy Homes (4 Pages)</a>
+      <a href="#rent-section" onclick="closeMobileMenu()">Rent Homes (4 Pages)</a>
+      <a href="#lease-section" onclick="closeMobileMenu()">Lease Properties (4 Pages)</a>
+      <a href="#verification" onclick="closeMobileMenu()">4-Step Verification</a>
+      <button class="btn-gold" onclick="closeMobileMenu(); triggerAppInstall();">Install TerraNest Phone App</button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO SECTION & GLOBAL FILTER BAR
+       ======================================================================== -->
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+        100% Title-Verified Global Real Estate • Buy, Rent &amp; Lease
+      </div>
+
+      <h1 class="hero-title">
+        Verified Global Living — <span>Buy, Rent &amp; Lease</span> Luxury Homes
+      </h1>
+
+      <p class="hero-subtitle">
+        Inspect 10 full interior &amp; exterior views of every residence across Africa, Europe, North America, Asia, South America, and Oceania—and connect directly on WhatsApp to close your deal safely.
+      </p>
+
+      <!-- Global Filter & Section Quick-Jump Widget -->
+      <div class="search-box">
+        <div class="quick-jump-bar">
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;">Jump to Catalog:</span>
+          <div class="jump-pills">
+            <a href="#buy-section" class="jump-pill">Buy a Home (20)</a>
+            <a href="#rent-section" class="jump-pill">Rent a Home (20)</a>
+            <a href="#lease-section" class="jump-pill">Lease a Property (20)</a>
+          </div>
+        </div>
+
+        <div class="search-fields">
+          <div class="field-group">
+            <label for="continentFilter">Filter by Continent</label>
+            <select id="continentFilter" class="field-control" onchange="applyGlobalFilters()">
+              <option value="ALL">All 6 Continents</option>
+              <option value="Africa">Africa</option>
+              <option value="Europe">Europe</option>
+              <option value="North America">North America</option>
+              <option value="Asia">Asia</option>
+              <option value="South America">South America</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="keywordInput">Search City, Country, or Title</label>
+            <input type="text" id="keywordInput" class="field-control" placeholder="e.g., Lagos, Abuja, London, Dubai, Miami..." oninput="applyGlobalFilters()" />
+          </div>
+
+          <button class="search-submit" onclick="applyGlobalFilters()">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+              <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            </svg>
+            Filter Listings
+          </button>
+
+          <button class="reset-filter-btn" onclick="resetGlobalFilters()">Reset</button>
+        </div>
+      </div>
+
+      <!-- Trust Metrics Strip -->
+      <div class="trust-strip">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <span>10 Photos Per Residence</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/>
+            </svg>
+          </div>
+          <span>6 Continents Covered</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <span>Deed &amp; Title Verified</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <span>Instant WhatsApp Closing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 1: BUY SECTION (5 HOMES PER PAGE • 4 PAGES = 20 HOMES)
+       ======================================================================== -->
+  <section class="catalog-section" id="buy-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Outright Ownership &amp; Title Deeds</span>
+          <h2 class="section-title">Buy a Luxury Home</h2>
+          <p class="section-desc">Click any house photo to inspect all 10 interior and exterior views, verify its deed ID, and proceed directly to purchase on WhatsApp.</p>
+        </div>
+        <div class="page-indicator-badge" id="buyPageBadge">Page 1 of 4 • Showing 5 Homes</div>
+      </div>
+
+      <div class="properties-grid-5" id="buyGrid"></div>
+      <div class="pagination-bar" id="buyPagination" aria-label="Buy Section Pagination"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 2: RENT SECTION (5 HOMES PER PAGE • 4 PAGES = 20 HOMES)
+       ======================================================================== -->
+  <section class="catalog-section alt-bg" id="rent-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Verified Monthly Residences</span>
+          <h2 class="section-title">Rent a Home or Apartment</h2>
+          <p class="section-desc">Move-in-ready luxury homes and serviced apartments across every continent. Click any property to view 10 room photos and book via WhatsApp.</p>
+        </div>
+        <div class="page-indicator-badge" id="rentPageBadge">Page 1 of 4 • Showing 5 Homes</div>
+      </div>
+
+      <div class="properties-grid-5" id="rentGrid"></div>
+      <div class="pagination-bar" id="rentPagination" aria-label="Rent Section Pagination"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 3: LEASE SECTION (5 PROPERTIES PER PAGE • 4 PAGES = 20 PROPERTIES)
+       ======================================================================== -->
+  <section class="catalog-section" id="lease-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Executive, Diplomatic &amp; Annual Contracts</span>
+          <h2 class="section-title">Lease a Luxury Property</h2>
+          <p class="section-desc">Long-term executive villas, diplomatic compounds, and corporate residences. Click any listing to explore 10 detailed views and start your lease on WhatsApp.</p>
+        </div>
+        <div class="page-indicator-badge" id="leasePageBadge">Page 1 of 4 • Showing 5 Properties</div>
+      </div>
+
+      <div class="properties-grid-5" id="leaseGrid"></div>
+      <div class="pagination-bar" id="leasePagination" aria-label="Lease Section Pagination"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4-STEP VERIFICATION & TRUST ARCHITECTURE
+       ======================================================================== -->
+  <section class="trust-section" id="verification">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Zero Fraud Tolerance</span>
+          <h2 class="section-title">How TerraNest Guarantees Legitimacy</h2>
+        </div>
+        <p style="color: var(--text-light-muted); max-width: 460px; font-size: 0.94rem;">
+          Every house and apartment passes our 4-pillar legal and physical audit before receiving a TerraNest Verification ID.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <span class="pillar-step">01</span>
+          <div class="pillar-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3>On-Ground Physical Audit</h3>
+          <p>Our regional field inspectors visit every property in person to verify structural integrity, exact GPS coordinates, neighborhood safety, and live video proof.</p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-step">02</span>
+          <div class="pillar-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>Land Registry &amp; Deed Check</h3>
+          <p>Partner real estate attorneys verify Certificate of Occupancy (C of O), Title Deeds, and encumbrance-free status directly with government registries.</p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-step">03</span>
+          <div class="pillar-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Biometric Owner &amp; Landlord KYC</h3>
+          <p>We eliminate middleman scams by authenticating the legal property owner or authorized developer with government ID and corporate registration checks.</p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-step">04</span>
+          <div class="pillar-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <h3>Direct WhatsApp &amp; Escrow Desk</h3>
+          <p>Connect directly with our verified global closing desk on WhatsApp (+44 7367 519490) for instant video tours, legal packs, and escrow-protected settlements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">
+            <svg width="38" height="38" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="44" height="44" rx="11" fill="#0f172a" stroke="#d4af37" stroke-width="2"/>
+              <path d="M24 10L10 21H15V36H33V21H38L24 10Z" stroke="#d4af37" stroke-width="2.2" stroke-linejoin="round"/>
+              <circle cx="35" cy="14" r="5" fill="#10b981"/>
+            </svg>
+            <div class="brand-text">
+              <span class="brand-name">TerraNest</span>
+              <span class="brand-sub">Luxury Properties and Homes</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">
+            TerraNest Luxury Properties and Homes is a borderless global real estate platform to buy, rent, and lease verified homes across all 6 continents.
+          </p>
+        </div>
+
+        <div>
+          <h5>Property Catalogs</h5>
+          <ul class="footer-links">
+            <li><a href="#buy-section">Buy Luxury Homes (Pages 1–4)</a></li>
+            <li><a href="#rent-section">Rent Homes &amp; Apartments (Pages 1–4)</a></li>
+            <li><a href="#lease-section">Lease Executive Properties (Pages 1–4)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5>Mobile App &amp; Trust</h5>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="triggerAppInstall()">Install TerraNest Phone App</a></li>
+            <li><a href="#verification">4-Step Title Verification</a></li>
+            <li><a href="#verification">Escrow Buyer Protection</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5>Direct WhatsApp Desk</h5>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/447367519490?text=Hello%20TerraNest%20Luxury%20Properties%20and%20Homes,%20I%20would%20like%20to%20make%20a%20property%20inquiry." target="_blank" rel="noopener noreferrer" style="color: #6ee7b7; font-weight: 700;">WhatsApp: +44 7367 519490</a></li>
+            <li>concierge@terranesthomes.com</li>
+            <li>Lagos • Abuja • London • Dubai • Miami</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 TerraNest Luxury Properties and Homes. All rights reserved.</span>
+        <span>Verified Global Living — Buy, Rent &amp; Lease Worldwide.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       FLOATING WHATSAPP BUTTON (+44 7367 519490)
+       ======================================================================== -->
+  <a
+    href="https://wa.me/447367519490?text=Hello%20TerraNest%20Luxury%20Properties%20and%20Homes!%20I%20am%20browsing%20your%20website%20and%20would%20like%20assistance%20with%20a%20property."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="floating-whatsapp"
+    aria-label="Chat with TerraNest on WhatsApp"
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.5 0 .16 5.34.16 11.91c0 2.1.55 4.15 1.59 5.96L0 24l6.31-1.65a11.87 11.87 0 0 0 5.76 1.47h.01c6.57 0 11.91-5.34 11.91-11.91 0-3.18-1.24-6.17-3.47-8.43zM12.08 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.88-9.89 9.88zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/>
+    </svg>
+    <span>Chat on WhatsApp</span>
+  </a>
+
+  <!-- ========================================================================
+       PWA APP INSTALL POP-UP ("Install" or "Not Now")
+       ======================================================================== -->
+  <div class="pwa-popup" id="pwaInstallPopup" role="dialog" aria-labelledby="pwaPopupTitle">
+    <div class="pwa-popup-top">
+      <svg width="46" height="46" viewBox="0 0 48 48" fill="none" style="flex-shrink: 0;">
+        <rect x="2" y="2" width="44" height="44" rx="12" fill="#141f38" stroke="#d4af37" stroke-width="2"/>
+        <path d="M24 10L10 21H15V36H33V21H38L24 10Z" stroke="#d4af37" stroke-width="2.2" stroke-linejoin="round"/>
+        <circle cx="35" cy="14" r="5" fill="#10b981"/>
+      </svg>
+      <div>
+        <h4 class="serif" id="pwaPopupTitle" style="font-size: 1.05rem; color: #ffffff; margin-bottom: 0.15rem;">Install TerraNest App</h4>
+        <p style="font-size: 0.8rem; color: var(--text-light-muted); line-height: 1.4;">
+          Add TerraNest Luxury Properties &amp; Homes to your phone home screen for instant 1-tap access.
+        </p>
+      </div>
+    </div>
+    <div class="pwa-popup-actions">
+      <button class="btn-gold" id="pwaConfirmInstallBtn" onclick="triggerAppInstall()">
+        Install App
+      </button>
+      <button class="btn-not-now" onclick="dismissPwaPopup()">
+        Not Now
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 1: 10-PHOTO HOUSE GALLERY & DIRECT WHATSAPP PURCHASE/RENT/LEASE
+       ======================================================================== -->
+  <div class="modal-backdrop" id="propertyGalleryModal" role="dialog" aria-modal="true" aria-labelledby="modalPropTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold-light); font-weight: 700;" id="modalAuditBadge">VERIFIED LISTING</span>
+          <h3 class="serif" style="font-size: 1.28rem;" id="modalPropTitle">Property Title</h3>
+        </div>
+        <button class="modal-close" onclick="closeGalleryModal()" aria-label="Close Gallery Modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- 10-Photo Main Viewer -->
+        <div class="gallery-stage">
+          <button class="gallery-nav-btn gallery-prev" onclick="changeGalleryPhoto(-1)" aria-label="Previous Photo">&#10094;</button>
+          <div id="galleryMainImage" style="width: 100%; height: 100%;"></div>
+          <button class="gallery-nav-btn gallery-next" onclick="changeGalleryPhoto(1)" aria-label="Next Photo">&#10095;</button>
+          <div class="gallery-caption-bar">
+            <span id="galleryRoomLabel">Photo 1: Front Architectural Exterior</span>
+            <span style="background: rgba(212,175,55,0.22); border: 1px solid var(--gold); color: var(--gold-light); padding: 0.2rem 0.65rem; border-radius: 999px; font-size: 0.78rem;" id="galleryCounterLabel">1 / 10</span>
+          </div>
+        </div>
+
+        <!-- 10 Clickable Thumbnails -->
+        <div class="thumb-strip" id="galleryThumbStrip"></div>
+
+        <!-- Property Specs & Direct WhatsApp Action -->
+        <div class="modal-details-grid">
+          <div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; margin-bottom: 0.65rem;">
+              <span style="font-weight: 700; color: var(--gold-dark); font-size: 0.92rem;" id="modalLocation">Location</span>
+              <span style="font-size: 1.45rem; font-weight: 800; color: var(--bg-navy);" id="modalPrice">$0</span>
+            </div>
+
+            <div style="display: flex; gap: 1.25rem; font-size: 0.85rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.85rem; padding: 0.6rem 0.85rem; background: var(--bg-ivory); border-radius: var(--radius-sm);" id="modalSpecsRow"></div>
+
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65;" id="modalDescription"></p>
+
+            <div class="audit-box">
+              <h4>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+                </svg>
+                TerraNest 4-Point Legitimacy Audit Passed
+              </h4>
+              <ul class="audit-list">
+                <li>&#10003; Land Registry Deed Verified</li>
+                <li>&#10003; On-Ground Physical Inspection</li>
+                <li>&#10003; Owner Biometric KYC Confirmed</li>
+                <li>&#10003; Escrow Settlement Eligible</li>
+              </ul>
+            </div>
+
+            <div class="amenities-wrap" id="modalAmenities"></div>
+          </div>
+
+          <!-- WhatsApp Closing Box -->
+          <div class="whatsapp-action-card">
+            <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold-light); font-weight: 700;">Direct Concierge Closing</span>
+            <h4 class="serif" style="font-size: 1.25rem; margin: 0.35rem 0 0.6rem;">Ready to Secure This Property?</h4>
+            <p style="font-size: 0.85rem; color: var(--text-light-muted); line-height: 1.55;">
+              Click below to launch a direct WhatsApp chat with our Senior Property Advisor (<strong style="color: #ffffff;">+44 7367 519490</strong>). Your selected property ID, price, and category will be pre-filled automatically.
+            </p>
+
+            <a id="modalWhatsappBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-cta">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.5 0 .16 5.34.16 11.91c0 2.1.55 4.15 1.59 5.96L0 24l6.31-1.65a11.87 11.87 0 0 0 5.76 1.47h.01c6.57 0 11.91-5.34 11.91-11.91 0-3.18-1.24-6.17-3.47-8.43zM12.08 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.88-9.89 9.88zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/>
+              </svg>
+              <span id="modalWhatsappBtnLabel">Proceed to Buy on WhatsApp</span>
+            </a>
+
+            <p style="font-size: 0.74rem; color: var(--text-light-muted); text-align: center; margin-top: 0.75rem;">
+              Instant reply • Live HD Video Walkthroughs • Legal Deed Verification
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 2: UNIVERSAL PHONE INSTALLATION GUIDE (FOOLPROOF BROWSER FALLBACK)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="installFallbackModal" role="dialog" aria-modal="true" aria-labelledby="installGuideTitle">
+    <div class="modal-card" style="max-width: 520px;">
+      <div class="modal-header">
+        <div>
+          <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold-light); font-weight: 700;">Mobile App Setup</span>
+          <h3 class="serif" style="font-size: 1.22rem;" id="installGuideTitle">Install TerraNest on Your Phone</h3>
+        </div>
+        <button class="modal-close" onclick="closeInstallFallbackModal()" aria-label="Close Install Guide">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+          Your current browser requires a 2-tap Home Screen installation. Follow the quick steps for your phone below:
+        </p>
+
+        <ul class="install-step-list">
+          <li>
+            <span class="step-num">1</span>
+            <div>
+              <strong>On iPhone / iPad (Safari):</strong> Tap the <strong>Share icon</strong> (square with upward arrow) at the bottom of your screen, scroll down, and tap <strong>"Add to Home Screen"</strong>.
+            </div>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <div>
+              <strong>On Android (Chrome / Samsung / Brave):</strong> Tap the <strong>Three Dots (&vellip;)</strong> menu in the top-right corner of your browser and select <strong>"Install App"</strong> or <strong>"Add to Home Screen"</strong>.
+            </div>
+          </li>
+        </ul>
+
+        <button class="btn-gold" style="width: 100%; padding: 0.85rem;" onclick="downloadOfflineAppShortcut()">
+          Download Offline App File (.html)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toastNotice" role="status">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+    </svg>
+    <span id="toastMessage">Action completed.</span>
+  </div>
+
+  <!-- ========================================================================
+       VANILLA JAVASCRIPT APPLICATION LOGIC
+       ======================================================================== -->
+  <script>
+    /* ========================================================================
+       1. CONFIGURATION, CURRENCY RATES & PWA MANIFEST
+       ======================================================================== */
+    const WHATSAPP_NUMBER = "447367519490";
+    const ITEMS_PER_PAGE = 5;
+
+    const CURRENCIES = {
+      USD: { symbol: "$", rate: 1, code: "USD" },
+      NGN: { symbol: "₦", rate: 1580, code: "NGN" },
+      EUR: { symbol: "€", rate: 0.92, code: "EUR" },
+      GBP: { symbol: "£", rate: 0.79, code: "GBP" }
+    };
+
+    let currentCurrency = "USD";
+    let pageState = {
+      BUY: 1,
+      RENT: 1,
+      LEASE: 1
+    };
+
+    (function setupDynamicPWA() {
+      const appIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect width="192" height="192" rx="42" fill="#080d18"/><rect x="8" y="8" width="176" height="176" rx="36" fill="none" stroke="#d4af37" stroke-width="6"/><path d="M96 42L40 86H60V146H132V86H152L96 42Z" fill="none" stroke="#d4af37" stroke-width="9" stroke-linejoin="round"/><circle cx="140" cy="54" r="18" fill="#10b981"/></svg>`;
+      const iconDataUrl = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(appIconSvg);
+      document.getElementById("appleTouchIcon").href = iconDataUrl;
+
+      const manifestObj = {
+        name: "TerraNest Luxury Properties and Homes",
+        short_name: "TerraNest",
+        start_url: window.location.href,
+        display: "standalone",
+        background_color: "#080d18",
+        theme_color: "#080d18",
+        description: "Verified Global Real Estate — Buy, Rent & Lease Luxury Homes Across All Continents.",
+        icons: [
+          { src: iconDataUrl, sizes: "192x192", type: "image/svg+xml", purpose: "any maskable" },
+          { src: iconDataUrl, sizes: "512x512", type: "image/svg+xml", purpose: "any maskable" }
+        ]
+      };
+
+      const blob = new Blob([JSON.stringify(manifestObj)], { type: "application/manifest+json" });
+      document.getElementById("dynamicManifest").href = URL.createObjectURL(blob);
+    })();
+
+    let deferredPrompt = null;
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if (!sessionStorage.getItem("terranest_pwa_dismissed")) {
+        setTimeout(() => {
+          document.getElementById("pwaInstallPopup").classList.add("show");
+        }, 1200);
+      }
+    });
+
+    window.addEventListener("load", () => {
+      const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+      if (!isStandalone && !sessionStorage.getItem("terranest_pwa_dismissed")) {
+        setTimeout(() => {
+          document.getElementById("pwaInstallPopup").classList.add("show");
+        }, 1500);
+      }
+    });
+
+    function dismissPwaPopup() {
+      document.getElementById("pwaInstallPopup").classList.remove("show");
+      sessionStorage.setItem("terranest_pwa_dismissed", "1");
+    }
+
+    async function triggerAppInstall() {
+      document.getElementById("pwaInstallPopup").classList.remove("show");
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        deferredPrompt = null;
+        if (outcome === "accepted") {
+          showToast("TerraNest Luxury Properties & Homes has been installed on your device.");
+          return;
+        }
+      }
+      document.getElementById("installFallbackModal").classList.add("open");
+    }
+
+    function closeInstallFallbackModal() {
+      document.getElementById("installFallbackModal").classList.remove("open");
+    }
+
+    function downloadOfflineAppShortcut() {
+      const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "TerraNest-Luxury-Properties-App.html";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast("TerraNest App file downloaded. Open it anytime on your phone.");
+    }
+
+    /* ========================================================================
+       2. 10-PHOTO GALLERY SYSTEM USING UNSPLASH REAL ESTATE PHOTOGRAPHY
+       ======================================================================== */
+    const UNSPLASH_EXTERIOR_POOL = [
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1576941089067-2de3c901e126?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1598228723793-52759bba239c?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=900&q=80"
+    ];
+
+    const ROOM_VIEWS = [
+      {
+        label: "Photo 1 of 10: Grand Front Exterior Facade",
+        slug: "exterior-facade",
+        photos: UNSPLASH_EXTERIOR_POOL
+      },
+      {
+        label: "Photo 2 of 10: Double-Height Main Living Lounge",
+        slug: "living-lounge",
+        photos: [
+          "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=900&q=80"
+        ]
+      },
+      {
+        label: "Photo 3 of 10: Italian Marble Gourmet Kitchen",
+        slug: "gourmet-kitchen",
+        photos: [
+          "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?auto=format&fit=crop&w=900&q=80"
+        ]
+      },
+      {
+        label: "Photo 4 of 10: Master Bedroom Penthouse Suite",
+        slug: "master-suite",
+        photos: [
+          "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80"
+        ]
+      },
+      {
+        label: "Photo 5 of 10: Panoramic Spa & Jacuzzi Bathroom",
+        slug: "spa-bathroom",
+        photos: [
+          "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=900&q=80"
+        ]
+      },
+      {
+        label: "Photo 6 of 10: Private Infinity Swimming Pool & Deck",
+        slug: "infinity-pool",
+        photos: [
+          "https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1562778612-e1e0cda9915c?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=900&q=80"
+        ]
+      },
+      {
+        label: "Photo 7 of 10: Sunset Rooftop Sky Terrace",
+        slug: "rooftop-terrace",
+        photos: [
+          "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1591825729269-caeb344f6df2?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80"
+        ]
+      },
+      {
+        label: "Photo 8 of 10: Formal 12-Seater Dining Hall",
+        slug: "dining-hall",
+        photos: [
+          "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1604578762246-41134e37f9cc?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=900&q=80"
+        ]
+      },
+      {
+        label: "Photo 9 of 10: Executive Home Office & Library",
+        slug: "home-office",
+        photos: [
+          "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=900&q=80"
+        ]
+      },
+      {
+        label: "Photo 10 of 10: Gated Courtyard & Security Entrance",
+        slug: "gated-courtyard",
+        photos: [
+          "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1592595896551-12b371d546d5?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=900&q=80"
+        ]
+      }
+    ];
+
+    function buildPhotoUrls(propertyMainImage, propIndex) {
+      return ROOM_VIEWS.map((room, idx) => {
+        if (idx === 0) return propertyMainImage;
+        return room.photos[(propIndex + idx) % room.photos.length];
+      });
+    }
+
+    function renderRoomVisual(property, photoIndex) {
+      const room = ROOM_VIEWS[photoIndex] || ROOM_VIEWS[0];
+      const imgSrc = photoIndex === -1
+        ? property.mainImage
+        : (property.photos[photoIndex] || property.mainImage);
+      const altText = `${property.title} - ${room.label}`;
+      return `<img src="${imgSrc}" alt="${altText.replace(/"/g, "&quot;")}" loading="lazy" />`;
+    }
+
+    /* ========================================================================
+       3. 60 VERIFIED PROPERTIES DATASET:
+          - 20 BUY PROPERTIES (4 Pages × 5 Homes)
+          - 20 RENT PROPERTIES (4 Pages × 5 Homes)
+          - 20 LEASE PROPERTIES (4 Pages × 5 Properties)
+       ======================================================================== */
+    const RAW_PROPERTIES = [
+      // ==================== BUY SECTION: PAGE 1 (5 HOMES) ====================
+      { id: "TN-BUY-01", category: "BUY", title: "The Sovereign Banana Island Villa", continent: "Africa", city: "Banana Island, Lagos, Nigeria", priceUSD: 2850000, beds: 6, baths: 7, sqm: 920, mainImage: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=80", description: "Waterfront 6-bedroom detached luxury villa in Banana Island with private boat jetty, cinema lounge, elevator, solar microgrid, and Federal Certificate of Occupancy.", amenities: ["Private Jetty", "Infinity Pool", "Federal C of O", "Home Cinema", "Solar Power"] },
+      { id: "TN-BUY-02", category: "BUY", title: "Maitama Presidential Hilltop Mansion", continent: "Africa", city: "Maitama, Abuja, Nigeria", priceUSD: 1950000, beds: 7, baths: 8, sqm: 1050, mainImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80", description: "Expansive Diplomatic Zone residence in Maitama featuring bulletproof glazing, 2-bedroom guest chalet, manicured gardens, and AGIS verified title deed.", amenities: ["Diplomatic Zone", "Guest Chalet", "AGIS Verified", "Smart Automation", "8-Car Garage"] },
+      { id: "TN-BUY-03", category: "BUY", title: "Kensington Royal Freehold Townhouse", continent: "Europe", city: "Kensington, London, UK", priceUSD: 4950000, beds: 5, baths: 5, sqm: 540, mainImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80", description: "Classic white-stucco freehold residence moments from Hyde Park with bespoke Italian marble kitchen, subterranean wine cellar, and landscaped courtyard.", amenities: ["Freehold Deed", "Wine Cellar", "Private Garden", "Underfloor Heat", "24/7 Concierge"] },
+      { id: "TN-BUY-04", category: "BUY", title: "Palm Jumeirah Signature Beach Villa", continent: "Asia", city: "Palm Jumeirah, Dubai, UAE", priceUSD: 6200000, beds: 6, baths: 7, sqm: 860, mainImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80", description: "Direct private beach villa on Palm Jumeirah with Atlantis skyline views, temperature-controlled pool, and Dubai Land Department title verification.", amenities: ["Private Beach", "Golden Visa Eligible", "Rooftop Deck", "Maid Quarters", "DLD Verified"] },
+      { id: "TN-BUY-05", category: "BUY", title: "Beverly Hills Glass Horizon Estate", continent: "North America", city: "Beverly Hills, California, USA", priceUSD: 5400000, beds: 5, baths: 6, sqm: 710, mainImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80", description: "Architectural glass compound overlooking Los Angeles to the Pacific Ocean with zero-edge infinity pool, wellness spa, and gated motor court.", amenities: ["Ocean Views", "Zero-Edge Pool", "Wellness Spa", "Gated Entry", "Chef Kitchen"] },
+
+      // ==================== BUY SECTION: PAGE 2 (5 HOMES) ====================
+      { id: "TN-BUY-06", category: "BUY", title: "Lekki Phase 1 Waterfront Smart Duplex", continent: "Africa", city: "Lekki Phase 1, Lagos, Nigeria", priceUSD: 780000, beds: 5, baths: 6, sqm: 520, mainImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80", description: "Contemporary 5-bedroom fully detached smart home in Lekki Phase 1 with rooftop lounge, swimming pool, fitted Bosch kitchen, and Governor's Consent.", amenities: ["Governor's Consent", "Swimming Pool", "Rooftop Lounge", "Smart Locks", "24/7 Estate Power"] },
+      { id: "TN-BUY-07", category: "BUY", title: "Camps Bay Twelve Apostles Ocean Villa", continent: "Africa", city: "Camps Bay, Cape Town, South Africa", priceUSD: 2450000, beds: 5, baths: 5, sqm: 610, mainImage: "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=900&q=80", description: "Elevated coastal sanctuary beneath Table Mountain with panoramic Atlantic sunset views, solar inverter backup, and rim-flow pool.", amenities: ["Atlantic Views", "Solar Backup", "Rim-Flow Pool", "Wine Room", "Armed Response"] },
+      { id: "TN-BUY-08", category: "BUY", title: "East Legon Ambassadorial Residence", continent: "Africa", city: "East Legon, Accra, Ghana", priceUSD: 920000, beds: 5, baths: 6, sqm: 580, mainImage: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80", description: "Prestigious gated residence in Accra's prime diplomatic enclave featuring double-height ceilings, pool house, and Lands Commission verified title.", amenities: ["Lands Commission Title", "Pool House", "Backup Generator", "Security Post", "Fitted Kitchen"] },
+      { id: "TN-BUY-09", category: "BUY", title: "Marbella Golden Mile Andalusian Villa", continent: "Europe", city: "Marbella, Costa del Sol, Spain", priceUSD: 3650000, beds: 6, baths: 6, sqm: 740, mainImage: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=900&q=80", description: "Sun-drenched Mediterranean estate with private tennis court, tropical gardens, heated saltwater pool, and Spanish Nota Simple registry clearance.", amenities: ["Tennis Court", "Saltwater Pool", "Sea Views", "Guest Suite", "Nota Simple Verified"] },
+      { id: "TN-BUY-10", category: "BUY", title: "Coral Gables Waterfront Yacht Mansion", continent: "North America", city: "Coral Gables, Miami, Florida, USA", priceUSD: 4800000, beds: 6, baths: 7, sqm: 790, mainImage: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=900&q=80", description: "Deep-water canal estate with 80-foot private yacht dockage, summer outdoor kitchen, hurricane-impact glass, and resort pool.", amenities: ["80ft Yacht Dock", "Impact Glass", "Summer Kitchen", "Resort Pool", "3-Car Garage"] },
+
+      // ==================== BUY SECTION: PAGE 3 (5 HOMES) ====================
+      { id: "TN-BUY-11", category: "BUY", title: "Karen Forest Contemporary Country Home", continent: "Africa", city: "Karen, Nairobi, Kenya", priceUSD: 1150000, beds: 5, baths: 5, sqm: 640, mainImage: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80", description: "Serene half-acre forested estate in Karen featuring floor-to-ceiling timber-framed glass, borehole water independence, and Kenyan Ministry of Lands title.", amenities: ["Half-Acre Plot", "Borehole & Solar", "Staff Quarters", "Fireplace Lounge", "Title Verified"] },
+      { id: "TN-BUY-12", category: "BUY", title: "Asokoro Summit Diplomatic Villa", continent: "Africa", city: "Asokoro, Abuja, Nigeria", priceUSD: 1650000, beds: 6, baths: 7, sqm: 810, mainImage: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80", description: "Elevated hilltop residence in Asokoro offering panoramic Abuja city views, private elevator, cinema room, and verified C of O.", amenities: ["Hilltop Views", "Private Lift", "Cinema Room", "C of O Verified", "Security Gatehouse"] },
+      { id: "TN-BUY-13", category: "BUY", title: "Sentosa Cove Waterfront Sanctuary", continent: "Asia", city: "Sentosa Island, Singapore", priceUSD: 7400000, beds: 5, baths: 6, sqm: 680, mainImage: "https://images.unsplash.com/photo-1576941089067-2de3c901e126?auto=format&fit=crop&w=900&q=80", description: "Rare marina-front residence in Sentosa Cove with private yacht berth, rooftop sky jacuzzi, and Singapore Land Authority title clearance.", amenities: ["Marina Berth", "Sky Jacuzzi", "SLA Verified", "Smart Home", "24/7 Guarded"] },
+      { id: "TN-BUY-14", category: "BUY", title: "Jardins Skyline Duplex Penthouse", continent: "South America", city: "Jardins, São Paulo, Brazil", priceUSD: 1450000, beds: 4, baths: 5, sqm: 430, mainImage: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=900&q=80", description: "Designer duplex residence in São Paulo's premier district with biometric lift access, gourmet terrace, and full Matrícula registry clearance.", amenities: ["Biometric Lift", "Gourmet Terrace", "Heated Lap Pool", "Valet Parking", "Matrícula Verified"] },
+      { id: "TN-BUY-15", category: "BUY", title: "Point Piper Harbourfront Residence", continent: "Oceania", city: "Point Piper, Sydney, Australia", priceUSD: 5850000, beds: 4, baths: 4, sqm: 460, mainImage: "https://images.unsplash.com/photo-1598228723793-52759bba239c?auto=format&fit=crop&w=900&q=80", description: "Uninterrupted Sydney Harbour Bridge and Opera House views from an exclusive boutique residence with private marina access.", amenities: ["Harbour Views", "Marina Access", "Gaggenau Kitchen", "Wine Cellar", "Torrens Title"] },
+
+      // ==================== BUY SECTION: PAGE 4 (5 HOMES) ====================
+      { id: "TN-BUY-16", category: "BUY", title: "Ikoyi Parkview Luxury Detached Villa", continent: "Africa", city: "Parkview Estate, Ikoyi, Lagos", priceUSD: 1480000, beds: 5, baths: 6, sqm: 600, mainImage: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?auto=format&fit=crop&w=900&q=80", description: "Newly completed contemporary 5-bedroom villa inside gated Parkview Estate Ikoyi with private pool, BQ, and Lagos State C of O.", amenities: ["Parkview Estate", "Private Pool", "2-Room BQ", "C of O Verified", "Fitted Smart Kitchen"] },
+      { id: "TN-BUY-17", category: "BUY", title: "Lake Como Bellagio Panorama Villa", continent: "Europe", city: "Bellagio, Lake Como, Italy", priceUSD: 4100000, beds: 5, baths: 5, sqm: 550, mainImage: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=900&q=80", description: "Historic lakeside villa restored to ultra-modern luxury standards with terraced olive gardens and private boat mooring.", amenities: ["Lake Como Frontage", "Boat Mooring", "Olive Gardens", "Wine Vault", "Catasto Verified"] },
+      { id: "TN-BUY-18", category: "BUY", title: "Bridle Path Grand Georgian Estate", continent: "North America", city: "North York, Toronto, Canada", priceUSD: 4350000, beds: 6, baths: 7, sqm: 850, mainImage: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80", description: "Limestone manor on Toronto's prestigious Bridle Path featuring indoor lap pool, home theater, heated driveway, and Ontario Land Registry deed.", amenities: ["Indoor Lap Pool", "Heated Driveway", "Home Theater", "Limestone Facade", "Title Insured"] },
+      { id: "TN-BUY-19", category: "BUY", title: "Uluwatu Cliffside Oceanfront Villa", continent: "Asia", city: "Uluwatu, Bali, Indonesia", priceUSD: 1380000, beds: 4, baths: 5, sqm: 510, mainImage: "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?auto=format&fit=crop&w=900&q=80", description: "Dramatic Indian Ocean cliff-edge architectural villa with glass-bottom infinity pool, sunken sunset firepit, and Hak Milik / PMA legal clearance.", amenities: ["Cliffside Ocean View", "Infinity Pool", "Sunken Firepit", "Spa Pavilion", "Legal PMA Title"] },
+      { id: "TN-BUY-20", category: "BUY", title: "Kigali Nyarutarama Golf View Villa", continent: "Africa", city: "Nyarutarama, Kigali, Rwanda", priceUSD: 890000, beds: 5, baths: 5, sqm: 530, mainImage: "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=900&q=80", description: "Modern eco-luxury residence overlooking Kigali Golf Course with solar energy autonomy, landscaped terrace, and Rwanda Land Authority title.", amenities: ["Golf Course View", "Solar Autonomy", "RLA Title Verified", "Gated Security", "Panoramic Terrace"] },
+
+      // ==================== RENT SECTION: PAGE 1 (5 HOMES) ====================
+      { id: "TN-RNT-01", category: "RENT", title: "Eko Atlantic Oceanfront Sky Apartment", continent: "Africa", city: "Eko Atlantic, Victoria Island, Lagos", priceUSD: 6500, beds: 4, baths: 5, sqm: 420, mainImage: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80", description: "Ultra-luxury high-rise apartment overlooking the Atlantic Ocean in Eko Atlantic City with 24/7 uninterrupted power, infinity pool, and concierge.", amenities: ["24/7 Power & Water", "Ocean Balcony", "Concierge Desk", "Residents Gym", "3 Parking Bays"] },
+      { id: "TN-RNT-02", category: "RENT", title: "Wuse 2 Serviced Executive Duplex", continent: "Africa", city: "Wuse 2, Abuja, Nigeria", priceUSD: 3800, beds: 4, baths: 5, sqm: 390, mainImage: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=900&q=80", description: "Fully serviced 4-bedroom luxury duplex in central Wuse 2 with dedicated backup power, armed estate security, and modern fitted kitchen.", amenities: ["24/7 Power", "Armed Security", "Serviced Estate", "Fitted Kitchen", "Central Abuja"] },
+      { id: "TN-RNT-03", category: "RENT", title: "Mayfair Grosvenor Square Residence", continent: "Europe", city: "Mayfair, London, UK", priceUSD: 14500, beds: 3, baths: 3, sqm: 280, mainImage: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=900&q=80", description: "Refined lateral apartment in the heart of Mayfair with 24-hour porterage, air cooling, herringbone oak floors, and private balcony.", amenities: ["24hr Porter", "Air Cooling", "Mayfair Address", "Lift Access", "Designer Furnished"] },
+      { id: "TN-RNT-04", category: "RENT", title: "Downtown Burj Khalifa View Suite", continent: "Asia", city: "Downtown Dubai, UAE", priceUSD: 9200, beds: 3, baths: 4, sqm: 295, mainImage: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80", description: "High-floor luxury residence facing Burj Khalifa and Dubai Fountain with direct Dubai Mall link, valet parking, and infinity sky pool.", amenities: ["Burj Khalifa View", "Dubai Mall Link", "Valet Parking", "Sky Pool", "All Bills Option"] },
+      { id: "TN-RNT-05", category: "RENT", title: "Brickell Key Waterfront Sky Residence", continent: "North America", city: "Brickell Key, Miami, USA", priceUSD: 11800, beds: 3, baths: 4, sqm: 310, mainImage: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80", description: "Biscayne Bay waterfront luxury apartment with wrap-around glass terrace, private marina walkway, tennis courts, and full spa.", amenities: ["Biscayne Bay View", "Private Elevator", "Spa & Sauna", "Tennis Courts", "24/7 Valet"] },
+
+      // ==================== RENT SECTION: PAGE 2 (5 HOMES) ====================
+      { id: "TN-RNT-06", category: "RENT", title: "Victoria Island Waterview Penthouse", continent: "Africa", city: "Oniru / Victoria Island, Lagos", priceUSD: 4500, beds: 4, baths: 4, sqm: 360, mainImage: "https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&w=900&q=80", description: "Spacious serviced penthouse minutes from Landmark Beach with private rooftop terrace, swimming pool, and 24-hour corporate security.", amenities: ["Rooftop Terrace", "Swimming Pool", "24/7 Security", "Backup Generators", "High-Speed Fiber"] },
+      { id: "TN-RNT-07", category: "RENT", title: "Sandton Hyde Park Designer Loft", continent: "Africa", city: "Sandton, Johannesburg, South Africa", priceUSD: 3400, beds: 3, baths: 3, sqm: 275, mainImage: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=900&q=80", description: "Secure lock-up-and-go luxury residence near Hyde Park Corner with solar inverter backup, biometric access, and heated lap pool.", amenities: ["Solar Inverter", "Biometric Gate", "Heated Pool", "Sandton CBD", "2 Underground Bays"] },
+      { id: "TN-RNT-08", category: "RENT", title: "Cantonments Diplomatic Garden Apartment", continent: "Africa", city: "Cantonments, Accra, Ghana", priceUSD: 3200, beds: 3, baths: 4, sqm: 290, mainImage: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80", description: "Tranquil luxury apartment in Cantonments surrounded by lush greenery, offering standby generator, pool deck, and 24/7 security.", amenities: ["Standby Power", "Resort Pool", "Diplomatic Area", "Fitness Center", "Water Filtration"] },
+      { id: "TN-RNT-09", category: "RENT", title: "Champs-Élysées Haussmann Apartment", continent: "Europe", city: "8th Arrondissement, Paris, France", priceUSD: 12400, beds: 3, baths: 3, sqm: 245, mainImage: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80", description: "Elegant Parisian apartment featuring wrought-iron balconies, Versailles parquet flooring, marble fireplaces, and elevator access.", amenities: ["Haussmann Style", "Elevator Building", "Balcony Views", "Air Conditioning", "Concierge"] },
+      { id: "TN-RNT-10", category: "RENT", title: "Manhattan Tribeca Cast-Iron Loft", continent: "North America", city: "Tribeca, New York, USA", priceUSD: 16500, beds: 3, baths: 3, sqm: 325, mainImage: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?auto=format&fit=crop&w=900&q=80", description: "Keyed-elevator full-floor Tribeca loft with 13-foot ceilings, chef's Wolf & Sub-Zero kitchen, and landscaped roof deck.", amenities: ["Keyed Elevator", "13ft Ceilings", "Roof Deck", "24hr Doorman", "Wine Fridge"] },
+
+      // ==================== RENT SECTION: PAGE 3 (5 HOMES) ====================
+      { id: "TN-RNT-11", category: "RENT", title: "Kilimani Skybridge Luxury Apartment", continent: "Africa", city: "Kilimani, Nairobi, Kenya", priceUSD: 2600, beds: 3, baths: 3, sqm: 240, mainImage: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80", description: "Modern serviced residence in Nairobi with heated rooftop pool, sky lounge, borehole water, and full backup power.", amenities: ["Heated Sky Pool", "Borehole & Power", "Gym & Steam Room", "CCTV & Guard", "Furnished Option"] },
+      { id: "TN-RNT-12", category: "RENT", title: "GRA Ikeja Gated Luxury Terrace Home", continent: "Africa", city: "Ikeja GRA, Lagos, Nigeria", priceUSD: 3500, beds: 4, baths: 5, sqm: 350, mainImage: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80", description: "Executive 4-bedroom terrace duplex in serene Ikeja GRA, 10 minutes from Murtala Muhammed International Airport.", amenities: ["10 Mins to Airport", "Gated Mini-Estate", "24/7 Power", "Fitted Kitchen", "BQ Included"] },
+      { id: "TN-RNT-13", category: "RENT", title: "Marina Bay Sands Skyline Residence", continent: "Asia", city: "Marina Bay, Singapore", priceUSD: 10800, beds: 3, baths: 3, sqm: 260, mainImage: "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?auto=format&fit=crop&w=900&q=80", description: "Iconic waterfront apartment overlooking Marina Bay with private sky garden, tennis courts, and direct MRT connection.", amenities: ["Marina Bay View", "Sky Garden", "Tennis Courts", "24hr Concierge", "Smart Climate"] },
+      { id: "TN-RNT-14", category: "RENT", title: "Ipanema Beachfront Glass Apartment", continent: "South America", city: "Ipanema, Rio de Janeiro, Brazil", priceUSD: 5900, beds: 3, baths: 4, sqm: 285, mainImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80", description: "Direct oceanfront residence on Vieira Souto Avenue with panoramic Ipanema Beach views and 24-hour armored security lobby.", amenities: ["Beachfront", "24hr Security", "Ocean Balcony", "Valet Garage", "Modern Kitchen"] },
+      { id: "TN-RNT-15", category: "RENT", title: "Bondi Beach Pacific Horizon Penthouse", continent: "Oceania", city: "Bondi Beach, Sydney, Australia", priceUSD: 8400, beds: 3, baths: 3, sqm: 270, mainImage: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=900&q=80", description: "Sun-drenched coastal penthouse steps from Bondi Beach with private plunge pool, outdoor BBQ terrace, and secure lift.", amenities: ["Ocean Views", "Plunge Pool", "BBQ Terrace", "Secure Lift", "2 Car Spaces"] },
+
+      // ==================== RENT SECTION: PAGE 4 (5 HOMES) ====================
+      { id: "TN-RNT-16", category: "RENT", title: "Guzape Hills Panoramic View Residence", continent: "Africa", city: "Guzape, Abuja, Nigeria", priceUSD: 3100, beds: 4, baths: 4, sqm: 340, mainImage: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80", description: "Modern hillside apartment in Guzape overlooking Abuja city lights with solar-hybrid power, swimming pool, and 24/7 security.", amenities: ["City Lights View", "Solar-Hybrid Power", "Swimming Pool", "Gated Security", "Spacious Balcony"] },
+      { id: "TN-RNT-17", category: "RENT", title: "Zurich Lakefront Alpine Modern Suite", continent: "Europe", city: "Seefeld, Zurich, Switzerland", priceUSD: 9800, beds: 3, baths: 3, sqm: 230, mainImage: "https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=900&q=80", description: "Minimalist Swiss-engineered luxury apartment steps from Lake Zurich with private boat dock access and geothermal cooling.", amenities: ["Lake Zurich Steps", "Swiss Engineering", "Private Storage", "Underground Parking", "Quiet Enclave"] },
+      { id: "TN-RNT-18", category: "RENT", title: "West Hollywood Sunset Strip Villa", continent: "North America", city: "West Hollywood, Los Angeles, USA", priceUSD: 14200, beds: 4, baths: 4, sqm: 380, mainImage: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=900&q=80", description: "Turnkey furnished contemporary home above Sunset Boulevard with private heated pool, outdoor fire lounge, and hedged privacy.", amenities: ["Heated Pool", "Turnkey Furnished", "Hedged Privacy", "Smart Security", "Chef Kitchen"] },
+      { id: "TN-RNT-19", category: "RENT", title: "West Bay Lagoon Waterfront Residence", continent: "Asia", city: "West Bay, Doha, Qatar", priceUSD: 6800, beds: 4, baths: 5, sqm: 395, mainImage: "https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?auto=format&fit=crop&w=900&q=80", description: "Luxury lagoon-front apartment in Doha with private beach access, clubhouse gym, covered parking, and 24/7 maintenance.", amenities: ["Private Beach", "Clubhouse Gym", "Lagoon Views", "24/7 Maintenance", "Covered Parking"] },
+      { id: "TN-RNT-20", category: "RENT", title: "Bourdillon Ikoyi Boutique Residence", continent: "Africa", city: "Bourdillon Road, Ikoyi, Lagos", priceUSD: 5800, beds: 3, baths: 4, sqm: 330, mainImage: "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=900&q=80", description: "Ultra-exclusive serviced apartment on Bourdillon Road Ikoyi featuring private elevator foyer, squash court, pool, and full concierge.", amenities: ["Bourdillon Address", "Private Lift Foyer", "Squash & Gym", "24/7 Concierge", "Uninterrupted Power"] },
+
+      // ==================== LEASE SECTION: PAGE 1 (5 PROPERTIES) ====================
+      { id: "TN-LSE-01", category: "LEASE", title: "Banana Island Corporate & Diplomatic Compound", continent: "Africa", city: "Banana Island, Lagos, Nigeria", priceUSD: 95000, beds: 6, baths: 7, sqm: 980, mainImage: "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=900&q=80", description: "Annual executive lease tailored for multinational oil, tech, and diplomatic missions. Includes 24/7 power plant, security post, and pool.", amenities: ["Annual Lease", "Diplomatic Grade", "24/7 Power Plant", "Guardhouse", "Pool & Gym"] },
+      { id: "TN-LSE-02", category: "LEASE", title: "Maitama Embassy & Executive Residence", continent: "Africa", city: "Maitama, Abuja, Nigeria", priceUSD: 78000, beds: 6, baths: 7, sqm: 890, mainImage: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=900&q=80", description: "Multi-year lease property in Maitama suitable for ambassadorial residence or corporate headquarters with 15-car parking.", amenities: ["15-Car Parking", "Ambassadorial Spec", "Conference Hall", "Backup Generators", "AGIS Verified"] },
+      { id: "TN-LSE-03", category: "LEASE", title: "Belgravia Eaton Square Diplomatic Lease", continent: "Europe", city: "Belgravia, London, UK", priceUSD: 240000, beds: 5, baths: 6, sqm: 620, mainImage: "https://images.unsplash.com/photo-1592595896551-12b371d546d5?auto=format&fit=crop&w=900&q=80", description: "Prestigious annual corporate lease in Belgravia with access to private Eaton Square gardens, staff apartment, and 24-hour security.", amenities: ["Eaton Square Access", "Staff Apartment", "Corporate Lease", "Lift & Concierge", "Grosvenor Estate"] },
+      { id: "TN-LSE-04", category: "LEASE", title: "Emirates Hills Fairway Executive Villa", continent: "Asia", city: "Emirates Hills, Dubai, UAE", priceUSD: 290000, beds: 6, baths: 8, sqm: 950, mainImage: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80", description: "Annual lease overlooking Montgomerie Golf Course in Emirates Hills with basement entertainment lounge, pool, and driver quarters.", amenities: ["Golf Course Front", "Annual Corporate Lease", "Driver Quarters", "Private Pool", "Gated Community"] },
+      { id: "TN-LSE-05", category: "LEASE", title: "Malibu Carbon Beach Oceanfront Lease", continent: "North America", city: "Malibu, California, USA", priceUSD: 360000, beds: 5, baths: 6, sqm: 640, mainImage: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=900&q=80", description: "12-to-24 month luxury oceanfront lease on Malibu's Billionaire's Beach with private sandy stairs, ocean deck, and spa.", amenities: ["Direct Beach Stairs", "12-24 Mo Lease", "Oceanfront Deck", "Smart Automation", "3-Car Garage"] },
+
+      // ==================== LEASE SECTION: PAGE 2 (5 PROPERTIES) ====================
+      { id: "TN-LSE-06", category: "LEASE", title: "Victoria Island Commercial & Executive Villa", continent: "Africa", city: "Adeola Odeku, Victoria Island, Lagos", priceUSD: 68000, beds: 5, baths: 6, sqm: 670, mainImage: "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=900&q=80", description: "Prime Victoria Island detached property available for corporate lease, fintech hub, or executive guest house with ample parking.", amenities: ["Corporate / Commercial", "12-Car Parking", "Central VI", "Industrial Generator", "Security Post"] },
+      { id: "TN-LSE-07", category: "LEASE", title: "Bishopscourt Ambassadorial Estate Lease", continent: "Africa", city: "Bishopscourt, Cape Town, South Africa", priceUSD: 115000, beds: 6, baths: 6, sqm: 820, mainImage: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=900&q=80", description: "Long-term executive lease on an acre of landscaped gardens in Bishopscourt with floodlit tennis court, pool, and solar grid.", amenities: ["1-Acre Gardens", "Tennis Court", "Solar Power Grid", "Mountain Views", "Long-Term Lease"] },
+      { id: "TN-LSE-08", category: "LEASE", title: "Airport Residential Corporate Residence", continent: "Africa", city: "Airport Residential, Accra, Ghana", priceUSD: 62000, beds: 5, baths: 6, sqm: 590, mainImage: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=900&q=80", description: "5 minutes from Kotoka International Airport. Ideal for regional directors and diplomatic staff on annual or 2-year lease terms.", amenities: ["5 Mins to Airport", "Annual / 2-Yr Lease", "Pool & Pavilion", "Standby Power", "24/7 Guarded"] },
+      { id: "TN-LSE-09", category: "LEASE", title: "Geneva Cologny Lakeview Manor Lease", continent: "Europe", city: "Cologny, Geneva, Switzerland", priceUSD: 265000, beds: 6, baths: 6, sqm: 720, mainImage: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80", description: "Diplomatic multi-year lease overlooking Lake Geneva and the Jet d'Eau with indoor wellness suite and high-security perimeter.", amenities: ["Lake Geneva Views", "Diplomatic Lease", "Indoor Wellness", "High Security", "4-Car Garage"] },
+      { id: "TN-LSE-10", category: "LEASE", title: "Greenwich Backcountry Georgian Lease", continent: "North America", city: "Greenwich, Connecticut, USA", priceUSD: 215000, beds: 6, baths: 7, sqm: 880, mainImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80", description: "Private 2-acre gated estate 40 minutes from Manhattan available for annual executive lease with pool house and home office wing.", amenities: ["2-Acre Estate", "Executive Office Wing", "Pool House", "Annual Lease", "40 Mins to NYC"] },
+
+      // ==================== LEASE SECTION: PAGE 3 (5 PROPERTIES) ====================
+      { id: "TN-LSE-11", category: "LEASE", title: "Runda Diplomatic Embassy Villa Lease", continent: "Africa", city: "Runda, Nairobi, Kenya", priceUSD: 58000, beds: 5, baths: 6, sqm: 650, mainImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80", description: "UN-approved security-grade residence in Runda, 5 minutes from the UN Gigiri complex, available for annual diplomatic lease.", amenities: ["UN Security Approved", "5 Mins to UN Gigiri", "Half-Acre Lawn", "Solar & Borehole", "2-Room DSQ"] },
+      { id: "TN-LSE-12", category: "LEASE", title: "Jabi Lakefront Executive Villa Lease", continent: "Africa", city: "Jabi, Abuja, Nigeria", priceUSD: 52000, beds: 5, baths: 6, sqm: 610, mainImage: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=80", description: "Serene lakeside detached villa in Jabi available on annual corporate or family lease with boat deck, pool, and 24/7 estate security.", amenities: ["Jabi Lake Views", "Annual Lease", "Swimming Pool", "24/7 Power", "Gated Estate"] },
+      { id: "TN-LSE-13", category: "LEASE", title: "Nassim Road Good Class Bungalow Lease", continent: "Asia", city: "Orchard / Nassim, Singapore", priceUSD: 340000, beds: 6, baths: 7, sqm: 940, mainImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80", description: "Ultra-prestigious Good Class Bungalow near Singapore Botanic Gardens available for 2-year diplomatic or family office lease.", amenities: ["Good Class Bungalow", "2-Year Lease", "Lap Pool & Koi Pond", "Botanic Gardens", "Private Gatehouse"] },
+      { id: "TN-LSE-14", category: "LEASE", title: "Cidade Jardim Private Compound Lease", continent: "South America", city: "Cidade Jardim, São Paulo, Brazil", priceUSD: 145000, beds: 5, baths: 6, sqm: 760, mainImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80", description: "High-security luxury residence in São Paulo with armored guardhouse, spa, wine cellar, and annual corporate lease terms.", amenities: ["Armored Guardhouse", "Corporate Lease", "Spa & Sauna", "Wine Cellar", "6-Car Garage"] },
+      { id: "TN-LSE-15", category: "LEASE", title: "Toorak Heritage Mansion Corporate Lease", continent: "Oceania", city: "Toorak, Melbourne, Australia", priceUSD: 175000, beds: 5, baths: 5, sqm: 690, mainImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80", description: "Grand Toorak residence available for 12-to-36 month executive lease featuring north-south tennis court, pool, and formal library.", amenities: ["Tennis Court", "12-36 Mo Lease", "Formal Library", "Heated Pool", "Toorak Village"] },
+
+      // ==================== LEASE SECTION: PAGE 4 (5 PROPERTIES) ====================
+      { id: "TN-LSE-16", category: "LEASE", title: "Lekki Foreshore Waterfront Duplex Lease", continent: "Africa", city: "Lekki Foreshore, Lagos, Nigeria", priceUSD: 48000, beds: 5, baths: 6, sqm: 540, mainImage: "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=900&q=80", description: "Annual lease inside Lekki's premier waterfront estate with lagoon promenade, private pool, gym, and 24/7 industrial power.", amenities: ["Lagoon Promenade", "Annual Lease", "Private Pool", "24/7 Power", "Estate Clubhouse"] },
+      { id: "TN-LSE-17", category: "LEASE", title: "Lisbon Avenida da Liberdade Penthouse Lease", continent: "Europe", city: "Avenida da Liberdade, Lisbon, Portugal", priceUSD: 132000, beds: 4, baths: 4, sqm: 390, mainImage: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80", description: "Full-floor sky penthouse in Lisbon's luxury boulevard available for annual corporate or relocation lease with panoramic Tagus views.", amenities: ["Tagus River Views", "Annual Lease", "Private Terrace", "24hr Concierge", "3 Parking Spaces"] },
+      { id: "TN-LSE-18", category: "LEASE", title: "Vancouver West Point Grey Ocean Lease", continent: "North America", city: "West Point Grey, Vancouver, Canada", priceUSD: 185000, beds: 5, baths: 6, sqm: 620, mainImage: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=900&q=80", description: "Waterfront glass residence overlooking English Bay and North Shore mountains available for 1-to-2 year executive lease.", amenities: ["English Bay View", "1-2 Year Lease", "Rooftop Hot Tub", "Home Theater", "Radiant Heat"] },
+      { id: "TN-LSE-19", category: "LEASE", title: "Al Mouj Oceanfront Golf Villa Lease", continent: "Asia", city: "Al Mouj, Muscat, Oman", priceUSD: 88000, beds: 5, baths: 6, sqm: 640, mainImage: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=900&q=80", description: "Marina and golf-front luxury villa in Muscat's premier integrated community available for annual diplomatic or corporate lease.", amenities: ["Marina & Golf", "Annual Lease", "Private Pool", "Beach Access", "24/7 Security"] },
+      { id: "TN-LSE-20", category: "LEASE", title: "Old Ikoyi Gerrard Road Executive Residence", continent: "Africa", city: "Gerrard Road, Old Ikoyi, Lagos", priceUSD: 85000, beds: 5, baths: 6, sqm: 710, mainImage: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80", description: "Landmark detached luxury residence on Gerrard Road Old Ikoyi available for annual corporate or embassy lease with lush gardens.", amenities: ["Old Ikoyi Landmark", "Annual Lease", "Lush Gardens", "24/7 Power & Security", "2-Room Staff Lodge"] }
+    ];
+
+    const ALL_PROPERTIES = RAW_PROPERTIES.map((prop, index) => ({
+      ...prop,
+      photos: buildPhotoUrls(prop.mainImage, index)
+    }));
+
+    /* ========================================================================
+       4. CURRENCY FORMATTING & WHATSAPP MESSAGE BUILDER
+       ======================================================================== */
+    function formatPrice(usdAmount, category) {
+      const curr = CURRENCIES[currentCurrency];
+      const converted = Math.round(usdAmount * curr.rate);
+      const formatted = converted.toLocaleString("en-US");
+      if (category === "RENT") return `${curr.symbol}${formatted} <span>/ month</span>`;
+      if (category === "LEASE") return `${curr.symbol}${formatted} <span>/ year</span>`;
+      return `${curr.symbol}${formatted}`;
+    }
+
+    function formatPlainPrice(usdAmount, category) {
+      const curr = CURRENCIES[currentCurrency];
+      const converted = Math.round(usdAmount * curr.rate).toLocaleString("en-US");
+      if (category === "RENT") return `${curr.symbol}${converted}/month (${curr.code})`;
+      if (category === "LEASE") return `${curr.symbol}${converted}/year (${curr.code})`;
+      return `${curr.symbol}${converted} (${curr.code})`;
+    }
+
+    function buildWhatsAppLink(prop) {
+      const actionVerb = prop.category === "BUY" ? "BUY" : prop.category === "RENT" ? "RENT" : "LEASE";
+      const priceText = formatPlainPrice(prop.priceUSD, prop.category);
+      const message =
+        `Hello TerraNest Luxury Properties and Homes! 👋\n\n` +
+        `I want to *${actionVerb}* this verified property:\n` +
+        `• *Property:* ${prop.title}\n` +
+        `• *Property ID:* ${prop.id}\n` +
+        `• *Location:* ${prop.city} (${prop.continent})\n` +
+        `• *Listed Price:* ${priceText}\n\n` +
+        `Please share the next steps for inspection and documentation.`;
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+
+    /* ========================================================================
+       5. FILTERING & 4-PAGE PAGINATION ENGINE FOR BUY, RENT & LEASE SECTIONS
+       ======================================================================== */
+    function getFilteredPropertiesByCategory(category) {
+      const continent = document.getElementById("continentFilter").value;
+      const keyword = document.getElementById("keywordInput").value.trim().toLowerCase();
+
+      return ALL_PROPERTIES.filter(prop => {
+        if (prop.category !== category) return false;
+        const matchContinent = continent === "ALL" || prop.continent === continent;
+        const matchKeyword =
+          keyword === "" ||
+          prop.title.toLowerCase().includes(keyword) ||
+          prop.city.toLowerCase().includes(keyword) ||
+          prop.continent.toLowerCase().includes(keyword) ||
+          prop.id.toLowerCase().includes(keyword);
+        return matchContinent && matchKeyword;
+      });
+    }
+
+    function renderCategorySection(category, gridId, paginationId, badgeId) {
+      const filteredList = getFilteredPropertiesByCategory(category);
+      const totalItems = filteredList.length;
+      const totalPages = Math.max(1, Math.ceil(totalItems / ITEMS_PER_PAGE));
+
+      if (pageState[category] > totalPages) pageState[category] = 1;
+      const currentPage = pageState[category];
+
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      const pageItems = filteredList.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+      const gridEl = document.getElementById(gridId);
+      const pagEl = document.getElementById(paginationId);
+      const badgeEl = document.getElementById(badgeId);
+
+      badgeEl.textContent = `Page ${currentPage} of ${totalPages} • Showing ${pageItems.length} of ${totalItems}`;
+
+      if (pageItems.length === 0) {
+        gridEl.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; background: #ffffff; padding: 2.5rem 1rem; border-radius: 14px; border: 1px dashed var(--border-light);">
+            <h4 class="serif" style="font-size: 1.25rem; margin-bottom: 0.4rem;">No Matching Properties in This Section</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">Reset your continent or city filter to view all 20 verified listings.</p>
+            <button class="btn-gold" onclick="resetGlobalFilters()">Reset Filters</button>
+          </div>
+        `;
+        pagEl.innerHTML = "";
+        return;
+      }
+
+      const badgeClass = category === "BUY" ? "badge-buy" : category === "RENT" ? "badge-rent" : "badge-lease";
+      const badgeLabel = category === "BUY" ? "For Sale" : category === "RENT" ? "For Rent" : "For Lease";
+
+      gridEl.innerHTML = pageItems.map(prop => `
+        <article class="prop-card" onclick="openPropertyGallery('${prop.id}')" role="button" tabindex="0" aria-label="Inspect ${prop.title}">
+          <div class="prop-media">
+            ${renderRoomVisual(prop, -1)}
+            <div class="badge-top-left">
+              <span class="listing-badge ${badgeClass}">${badgeLabel}</span>
+            </div>
+            <div class="photo-count-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+              </svg>
+              10 Photos
+            </div>
+            <div class="verified-ribbon">
+              &#10003; Verified • ${prop.id}
+            </div>
+          </div>
+
+          <div class="prop-body">
+            <div class="prop-location">${prop.continent} &bull; ${prop.city}</div>
+            <h3 class="prop-title">${prop.title}</h3>
+            <div class="prop-price">${formatPrice(prop.priceUSD, prop.category)}</div>
+
+            <div class="prop-specs">
+              <span>${prop.beds} Beds</span>
+              <span>${prop.baths} Baths</span>
+              <span>${prop.sqm} m&sup2;</span>
+            </div>
+
+            <div class="prop-footer">
+              <button type="button" class="btn-view-photos">
+                View 10 Photos &amp; Details
+              </button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+
+      let pagHtml = `
+        <button class="page-btn" ${currentPage === 1 ? "disabled" : ""} onclick="changeCategoryPage('${category}', ${currentPage - 1})">
+          &larr; Prev
+        </button>
+      `;
+
+      for (let p = 1; p <= totalPages; p++) {
+        pagHtml += `
+          <button class="page-btn ${p === currentPage ? "active" : ""}" onclick="changeCategoryPage('${category}', ${p})">
+            ${p}
+          </button>
+        `;
+      }
+
+      pagHtml += `
+        <button class="page-btn" ${currentPage === totalPages ? "disabled" : ""} onclick="changeCategoryPage('${category}', ${currentPage + 1})">
+          Next &rarr;
+        </button>
+      `;
+
+      pagEl.innerHTML = pagHtml;
+    }
+
+    function changeCategoryPage(category, targetPage) {
+      pageState[category] = targetPage;
+      renderAllSections();
+
+      const sectionMap = {
+        BUY: "buy-section",
+        RENT: "rent-section",
+        LEASE: "lease-section"
+      };
+      const targetEl = document.getElementById(sectionMap[category]);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function renderAllSections() {
+      renderCategorySection("BUY", "buyGrid", "buyPagination", "buyPageBadge");
+      renderCategorySection("RENT", "rentGrid", "rentPagination", "rentPageBadge");
+      renderCategorySection("LEASE", "leaseGrid", "leasePagination", "leasePageBadge");
+    }
+
+    function applyGlobalFilters() {
+      pageState.BUY = 1;
+      pageState.RENT = 1;
+      pageState.LEASE = 1;
+      renderAllSections();
+    }
+
+    function resetGlobalFilters() {
+      document.getElementById("continentFilter").value = "ALL";
+      document.getElementById("keywordInput").value = "";
+      applyGlobalFilters();
+      showToast("All filters reset across Buy, Rent, and Lease sections.");
+    }
+
+    /* ========================================================================
+       6. 10-PHOTO INTERACTIVE GALLERY MODAL LOGIC
+       ======================================================================== */
+    let activeGalleryProperty = null;
+    let activePhotoIndex = 0;
+
+    function openPropertyGallery(propertyId) {
+      const prop = ALL_PROPERTIES.find(p => p.id === propertyId);
+      if (!prop) return;
+
+      activeGalleryProperty = prop;
+      activePhotoIndex = 0;
+
+      const catLabel = prop.category === "BUY" ? "FOR SALE" : prop.category === "RENT" ? "FOR RENT" : "FOR LEASE";
+      document.getElementById("modalAuditBadge").textContent = `${catLabel} • VERIFICATION ID: ${prop.id}`;
+      document.getElementById("modalPropTitle").textContent = prop.title;
+      document.getElementById("modalLocation").textContent = `${prop.city} (${prop.continent})`;
+      document.getElementById("modalPrice").innerHTML = formatPrice(prop.priceUSD, prop.category);
+      document.getElementById("modalSpecsRow").innerHTML = `
+        <span>&#128716; ${prop.beds} Bedrooms</span>
+        <span>&#128705; ${prop.baths} Bathrooms</span>
+        <span>&#128208; ${prop.sqm} m&sup2; Area</span>
+      `;
+      document.getElementById("modalDescription").textContent = prop.description;
+
+      document.getElementById("modalAmenities").innerHTML = prop.amenities
+        .map(a => `<span class="amenity-tag">&#10003; ${a}</span>`)
+        .join("");
+
+      const waBtn = document.getElementById("modalWhatsappBtn");
+      const waLabel = document.getElementById("modalWhatsappBtnLabel");
+      waBtn.href = buildWhatsAppLink(prop);
+      waLabel.textContent =
+        prop.category === "BUY"
+          ? "Proceed to Buy on WhatsApp"
+          : prop.category === "RENT"
+          ? "Proceed to Rent on WhatsApp"
+          : "Proceed to Lease on WhatsApp";
+
+      renderGalleryFrame();
+      document.getElementById("propertyGalleryModal").classList.add("open");
+    }
+
+    function renderGalleryFrame() {
+      if (!activeGalleryProperty) return;
+
+      document.getElementById("galleryMainImage").innerHTML = renderRoomVisual(activeGalleryProperty, activePhotoIndex);
+      document.getElementById("galleryRoomLabel").textContent = ROOM_VIEWS[activePhotoIndex].label;
+      document.getElementById("galleryCounterLabel").textContent = `${activePhotoIndex + 1} / 10`;
+
+      const thumbStrip = document.getElementById("galleryThumbStrip");
+      thumbStrip.innerHTML = ROOM_VIEWS.map((room, idx) => `
+        <div
+          class="thumb-item ${idx === activePhotoIndex ? "active" : ""}"
+          onclick="selectGalleryPhoto(${idx})"
+          title="${room.label}"
+        >
+          ${renderRoomVisual(activeGalleryProperty, idx)}
+        </div>
+      `).join("");
+    }
+
+    function selectGalleryPhoto(index) {
+      activePhotoIndex = index;
+      renderGalleryFrame();
+    }
+
+    function changeGalleryPhoto(delta) {
+      activePhotoIndex = (activePhotoIndex + delta + 10) % 10;
+      renderGalleryFrame();
+    }
+
+    function closeGalleryModal() {
+      document.getElementById("propertyGalleryModal").classList.remove("open");
+    }
+
+    /* ========================================================================
+       7. CURRENCY SWITCHER, MOBILE MENU, KEYBOARD & TOAST HELPERS
+       ======================================================================== */
+    document.getElementById("currencySelector").addEventListener("change", (e) => {
+      currentCurrency = e.target.value;
+      renderAllSections();
+      if (activeGalleryProperty && document.getElementById("propertyGalleryModal").classList.contains("open")) {
+        document.getElementById("modalPrice").innerHTML = formatPrice(activeGalleryProperty.priceUSD, activeGalleryProperty.category);
+        document.getElementById("modalWhatsappBtn").href = buildWhatsAppLink(activeGalleryProperty);
+      }
+      showToast(`All property prices converted to ${currentCurrency}.`);
+    });
+
+    document.getElementById("mobileMenuBtn").addEventListener("click", () => {
+      document.getElementById("mobileMenu").classList.toggle("active");
+    });
+
+    function closeMobileMenu() {
+      document.getElementById("mobileMenu").classList.remove("active");
+    }
+
+    let toastTimeout;
+    function showToast(msg) {
+      const toast = document.getElementById("toastNotice");
+      document.getElementById("toastMessage").textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => toast.classList.remove("show"), 3800);
+    }
+
+    window.addEventListener("click", (e) => {
+      if (e.target.id === "propertyGalleryModal") closeGalleryModal();
+      if (e.target.id === "installFallbackModal") closeInstallFallbackModal();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      const galleryOpen = document.getElementById("propertyGalleryModal").classList.contains("open");
+      if (galleryOpen) {
+        if (e.key === "ArrowRight") changeGalleryPhoto(1);
+        if (e.key === "ArrowLeft") changeGalleryPhoto(-1);
+        if (e.key === "Escape") closeGalleryModal();
+      }
+      if (e.key === "Escape" && document.getElementById("installFallbackModal").classList.contains("open")) {
+        closeInstallFallbackModal();
+      }
+    });
+
+    renderAllSections();
+  </script>
+</body>
+</html>
