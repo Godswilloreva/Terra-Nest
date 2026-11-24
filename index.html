@@ -1388,9 +1388,41 @@
         <div class="currency-select-wrap" title="Switch Display Currency">
           <select id="currencySelector" class="currency-select" aria-label="Select Currency">
             <option value="USD">USD ($)</option>
-            <option value="NGN">NGN (₦)</option>
-            <option value="EUR">EUR (€)</option>
-            <option value="GBP">GBP (£)</option>
+            <option value="COP">COP (Colombian Peso - $)</option>
+<option value="USD">USD (US Dollar - $)</option> <!-- Ecuador -->
+<option value="PEN">PEN (Peruvian Sol - S/)</option>
+<option value="IDR">IDR (Indonesian Rupiah - Rp)</option>
+<option value="MZN">MZN (Mozambican Metical - MT)</option>
+
+<option value="ARS">ARS (Argentine Peso - $)</option>
+<option value="CLP">CLP (Chilean Peso - $)</option>
+<option value="UYU">UYU (Uruguayan Peso - $U)</option>
+<option value="PYG">PYG (Paraguayan Guarani - ₲)</option>
+<option value="BOB">BOB (Bolivian Boliviano - Bs)</option>
+<option value="VES">VES (Venezuelan Bolívar - Bs.)</option>
+<option value="DOP">DOP (Dominican Peso - RD$)</option>
+<option value="CRC">CRC (Costa Rican Colón - ₡)</option>
+<option value="GTQ">GTQ (Guatemalan Quetzal - Q)</option>
+<option value="HNL">HNL (Honduran Lempira - L)</option>
+<option value="PAB">PAB (Panamanian Balboa - B/.)</option>
+<option value="EGP">EGP (Egyptian Pound - E£)</option>
+<option value="MAD">MAD (Moroccan Dirham - د.م.)</option>
+<option value="ETB">ETB (Ethiopian Birr - Br)</option>
+<option value="RWF">RWF (Rwandan Franc - FRw)</option>
+<option value="ZMW">ZMW (Zambian Kwacha - ZK)</option>
+<option value="BWP">BWP (Botswana Pula - P)</option>
+<option value="NAD">NAD (Namibian Dollar - N$)</option>
+<option value="PHP">PHP (Philippine Peso - ₱)</option>
+<option value="THB">THB (Thai Baht - ฿)</option>
+<option value="MYR">MYR (Malaysian Ringgit - RM)</option>
+<option value="VND">VND (Vietnamese Dong - ₫)</option>
+<option value="PKR">PKR (Pakistani Rupee - ₨)</option>
+<option value="BDT">BDT (Bangladeshi Taka - ৳)</option>
+<option value="TRY">TRY (Turkish Lira - ₺)</option>
+<option value="PLN">PLN (Polish Zloty - zł)</option>
+<option value="SEK">SEK (Swedish Krona - kr)</option>
+<option value="NOK">NOK (Norwegian Krone - kr)</option>
+<option value="DKK">DKK (Danish Krone - kr)</option>
           </select>
         </div>
 
@@ -1411,11 +1443,11 @@
 
     <!-- Mobile Dropdown -->
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#buy-section" onclick="closeMobileMenu()">Buy Homes (4 Pages)</a>
-      <a href="#rent-section" onclick="closeMobileMenu()">Rent Homes (4 Pages)</a>
-      <a href="#lease-section" onclick="closeMobileMenu()">Lease Properties (4 Pages)</a>
-      <a href="#verification" onclick="closeMobileMenu()">4-Step Verification</a>
-      <button class="btn-gold" onclick="closeMobileMenu(); triggerAppInstall();">Install TerraNest Phone App</button>
+      <a href="#buy-section" onclick="closeMobileMenu()">Buy Homes</a>
+      <a href="#rent-section" onclick="closeMobileMenu()">Rent Homes</a>
+      <a href="#lease-section" onclick="closeMobileMenu()">Lease Properties</a>
+      <a href="#verification" onclick="closeMobileMenu()"Verification</a>
+      <button class="btn-gold" onclick="closeMobileMenu(); triggerAppInstall();">Install TerraNest</button>
     </div>
   </header>
 
@@ -1438,7 +1470,7 @@
       </h1>
 
       <p class="hero-subtitle">
-        Inspect 10 full interior &amp; exterior views of every residence across Africa, Europe, North America, Asia, South America, and Oceania—and connect directly on WhatsApp to close your deal safely.
+        Inspect full interior &amp; exterior views of every residence across Africa, Europe, North America, Asia, South America, and Oceania—and connect directly on WhatsApp to close your deal safely.
       </p>
 
       <!-- Global Filter & Section Quick-Jump Widget -->
@@ -1446,9 +1478,9 @@
         <div class="quick-jump-bar">
           <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em;">Jump to Catalog:</span>
           <div class="jump-pills">
-            <a href="#buy-section" class="jump-pill">Buy a Home (20)</a>
-            <a href="#rent-section" class="jump-pill">Rent a Home (20)</a>
-            <a href="#lease-section" class="jump-pill">Lease a Property (20)</a>
+            <a href="#buy-section" class="jump-pill">Buy a Home 
+            <a href="#rent-section" class="jump-pill">Rent a Home </a>
+            <a href="#lease-section" class="jump-pill">Lease a Property </a>
           </div>
         </div>
 
@@ -1457,8 +1489,8 @@
             <label for="continentFilter">Filter by Continent</label>
             <select id="continentFilter" class="field-control" onchange="applyGlobalFilters()">
               <option value="ALL">All 6 Continents</option>
-              <option value="Africa">Africa</option>
               <option value="Europe">Europe</option>
+              <option value="Africa">Africa</option>
               <option value="North America">North America</option>
               <option value="Asia">Asia</option>
               <option value="South America">South America</option>
@@ -1468,7 +1500,7 @@
 
           <div class="field-group">
             <label for="keywordInput">Search City, Country, or Title</label>
-            <input type="text" id="keywordInput" class="field-control" placeholder="e.g., Lagos, Abuja, London, Dubai, Miami..." oninput="applyGlobalFilters()" />
+            <input type="text" id="keywordInput" class="field-control" placeholder="e.g., London, Dubai, Miami, Lagos, Abuja, ..." oninput="applyGlobalFilters()" />
           </div>
 
           <button class="search-submit" onclick="applyGlobalFilters()">
@@ -1490,7 +1522,7 @@
               <path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/>
             </svg>
           </div>
-          <span>10 Photos Per Residence</span>
+          <span>Photos Per Residence</span>
         </div>
         <div class="trust-item">
           <div class="trust-icon">
@@ -1498,7 +1530,7 @@
               <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/>
             </svg>
           </div>
-          <span>6 Continents Covered</span>
+          <span>All Continents Covered</span>
         </div>
         <div class="trust-item">
           <div class="trust-icon">
@@ -1529,9 +1561,10 @@
         <div>
           <span class="section-eyebrow">Outright Ownership &amp; Title Deeds</span>
           <h2 class="section-title">Buy a Luxury Home</h2>
-          <p class="section-desc">Click any house photo to inspect all 10 interior and exterior views, verify its deed ID, and proceed directly to purchase on WhatsApp.</p>
+          <p class="section-desc">Click any house photo to inspect all  interior and exterior views, verify its deed ID, and proceed directly to purchase on WhatsApp.</p>
         </div>
         <div class="page-indicator-badge" id="buyPageBadge">Page 1 of 4 • Showing 5 Homes</div>
+
       </div>
 
       <div class="properties-grid-5" id="buyGrid"></div>
@@ -1548,7 +1581,8 @@
         <div>
           <span class="section-eyebrow">Verified Monthly Residences</span>
           <h2 class="section-title">Rent a Home or Apartment</h2>
-          <p class="section-desc">Move-in-ready luxury homes and serviced apartments across every continent. Click any property to view 10 room photos and book via WhatsApp.</p>
+          <p class="section-desc">Move-in-ready luxury homes and serviced apartments across every continent. Click any property to view  room photos and book via WhatsApp.</p>
+
         </div>
         <div class="page-indicator-badge" id="rentPageBadge">Page 1 of 4 • Showing 5 Homes</div>
       </div>
@@ -1567,7 +1601,7 @@
         <div>
           <span class="section-eyebrow">Executive, Diplomatic &amp; Annual Contracts</span>
           <h2 class="section-title">Lease a Luxury Property</h2>
-          <p class="section-desc">Long-term executive villas, diplomatic compounds, and corporate residences. Click any listing to explore 10 detailed views and start your lease on WhatsApp.</p>
+          <p class="section-desc">Long-term executive villas, diplomatic compounds, and corporate residences. Click any listing to explore  detailed views and start your lease on WhatsApp.</p>
         </div>
         <div class="page-indicator-badge" id="leasePageBadge">Page 1 of 4 • Showing 5 Properties</div>
       </div>
@@ -1666,16 +1700,16 @@
         <div>
           <h5>Property Catalogs</h5>
           <ul class="footer-links">
-            <li><a href="#buy-section">Buy Luxury Homes (Pages 1–4)</a></li>
-            <li><a href="#rent-section">Rent Homes &amp; Apartments (Pages 1–4)</a></li>
-            <li><a href="#lease-section">Lease Executive Properties (Pages 1–4)</a></li>
+            <li><a href="#buy-section">Buy Luxury Homes</a></li>
+            <li><a href="#rent-section">Rent Homes &amp; Apartments</a></li>
+            <li><a href="#lease-section">Lease Executive Properties</a></li>
           </ul>
         </div>
 
         <div>
           <h5>Mobile App &amp; Trust</h5>
           <ul class="footer-links">
-            <li><a href="javascript:void(0)" onclick="triggerAppInstall()">Install TerraNest Phone App</a></li>
+            <li><a href="javascript:void(0)" onclick="triggerAppInstall()">Install TerraNestApplication</a></li>
             <li><a href="#verification">4-Step Title Verification</a></li>
             <li><a href="#verification">Escrow Buyer Protection</a></li>
           </ul>
@@ -1686,7 +1720,7 @@
           <ul class="footer-links">
             <li><a href="https://wa.me/447367519490?text=Hello%20TerraNest%20Luxury%20Properties%20and%20Homes,%20I%20would%20like%20to%20make%20a%20property%20inquiry." target="_blank" rel="noopener noreferrer" style="color: #6ee7b7; font-weight: 700;">WhatsApp: +44 7367 519490</a></li>
             <li>concierge@terranesthomes.com</li>
-            <li>Lagos • Abuja • London • Dubai • Miami</li>
+            <li>London • Dubai • Peru • Germany • Miami • Italy • Abuja</li>
           </ul>
         </div>
       </div>
@@ -1857,7 +1891,7 @@
         </ul>
 
         <button class="btn-gold" style="width: 100%; padding: 0.85rem;" onclick="downloadOfflineAppShortcut()">
-          Download Offline App File (.html)
+          Install Now.
         </button>
       </div>
     </div>
@@ -1882,11 +1916,72 @@
     const ITEMS_PER_PAGE = 5;
 
     const CURRENCIES = {
-      USD: { symbol: "$", rate: 1, code: "USD" },
-      NGN: { symbol: "₦", rate: 1580, code: "NGN" },
-      EUR: { symbol: "€", rate: 0.92, code: "EUR" },
-      GBP: { symbol: "£", rate: 0.79, code: "GBP" }
-    };
+  USD: { symbol: "$", rate: 1, code: "USD" },
+  NGN: { symbol: "₦", rate: 1580, code: "NGN" },
+  EUR: { symbol: "€", rate: 0.92, code: "EUR" },
+  GBP: { symbol: "£", rate: 0.79, code: "GBP" },
+
+  CAD: { symbol: "C$", rate: 1.36, code: "CAD" },
+  AUD: { symbol: "A$", rate: 1.52, code: "AUD" },
+  JPY: { symbol: "¥", rate: 150, code: "JPY" },
+  CNY: { symbol: "¥", rate: 7.24, code: "CNY" },
+  INR: { symbol: "₹", rate: 83, code: "INR" },
+  GHS: { symbol: "₵", rate: 15, code: "GHS" },
+  KES: { symbol: "KSh", rate: 130, code: "KES" },
+  ZAR: { symbol: "R", rate: 18.5, code: "ZAR" },
+  UGX: { symbol: "USh", rate: 3700, code: "UGX" },
+  TZS: { symbol: "TSh", rate: 2500, code: "TZS" },
+  XOF: { symbol: "CFA", rate: 600, code: "XOF" },
+  XAF: { symbol: "FCFA", rate: 600, code: "XAF" },
+  CHF: { symbol: "Fr", rate: 0.88, code: "CHF" },
+  AED: { symbol: "د.إ", rate: 3.67, code: "AED" },
+  SAR: { symbol: "﷼", rate: 3.75, code: "SAR" },
+  BRL: { symbol: "R$", rate: 5, code: "BRL" },
+  MXN: { symbol: "$", rate: 17, code: "MXN" },
+  SGD: { symbol: "S$", rate: 1.35, code: "SGD" },
+  NZD: { symbol: "NZ$", rate: 1.65, code: "NZD" },
+
+  // South America
+  COP: { symbol: "$", rate: 4000, code: "COP" },
+  PEN: { symbol: "S/", rate: 3.75, code: "PEN" },
+  ARS: { symbol: "$", rate: 1000, code: "ARS" },
+  CLP: { symbol: "$", rate: 950, code: "CLP" },
+  UYU: { symbol: "$U", rate: 39, code: "UYU" },
+  PYG: { symbol: "₲", rate: 7300, code: "PYG" },
+  BOB: { symbol: "Bs", rate: 6.91, code: "BOB" },
+  VES: { symbol: "Bs.", rate: 36, code: "VES" },
+  DOP: { symbol: "RD$", rate: 59, code: "DOP" },
+  CRC: { symbol: "₡", rate: 510, code: "CRC" },
+  GTQ: { symbol: "Q", rate: 7.8, code: "GTQ" },
+  HNL: { symbol: "L", rate: 24.7, code: "HNL" },
+  PAB: { symbol: "B/.", rate: 1, code: "PAB" },
+
+  // Africa
+  MZN: { symbol: "MT", rate: 64, code: "MZN" },
+  EGP: { symbol: "E£", rate: 48, code: "EGP" },
+  MAD: { symbol: "د.م.", rate: 10, code: "MAD" },
+  ETB: { symbol: "Br", rate: 57, code: "ETB" },
+  RWF: { symbol: "FRw", rate: 1300, code: "RWF" },
+  ZMW: { symbol: "ZK", rate: 26, code: "ZMW" },
+  BWP: { symbol: "P", rate: 13.5, code: "BWP" },
+  NAD: { symbol: "N$", rate: 18.5, code: "NAD" },
+
+  // Asia
+  IDR: { symbol: "Rp", rate: 16000, code: "IDR" },
+  PHP: { symbol: "₱", rate: 56, code: "PHP" },
+  THB: { symbol: "฿", rate: 36, code: "THB" },
+  MYR: { symbol: "RM", rate: 4.7, code: "MYR" },
+  VND: { symbol: "₫", rate: 24500, code: "VND" },
+  PKR: { symbol: "₨", rate: 278, code: "PKR" },
+  BDT: { symbol: "৳", rate: 110, code: "BDT" },
+  TRY: { symbol: "₺", rate: 32, code: "TRY" },
+
+  // Europe
+  PLN: { symbol: "zł", rate: 4, code: "PLN" },
+  SEK: { symbol: "kr", rate: 10.5, code: "SEK" },
+  NOK: { symbol: "kr", rate: 10.6, code: "NOK" },
+  DKK: { symbol: "kr", rate: 6.9, code: "DKK" }
+};
 
     let currentCurrency = "USD";
     let pageState = {
@@ -2133,32 +2228,32 @@
        ======================================================================== */
     const RAW_PROPERTIES = [
       // ==================== BUY SECTION: PAGE 1 (5 HOMES) ====================
-      { id: "TN-BUY-01", category: "BUY", title: "The Sovereign Banana Island Villa", continent: "Africa", city: "Banana Island, Lagos, Nigeria", priceUSD: 2850000, beds: 6, baths: 7, sqm: 920, mainImage: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=80", description: "Waterfront 6-bedroom detached luxury villa in Banana Island with private boat jetty, cinema lounge, elevator, solar microgrid, and Federal Certificate of Occupancy.", amenities: ["Private Jetty", "Infinity Pool", "Federal C of O", "Home Cinema", "Solar Power"] },
-      { id: "TN-BUY-02", category: "BUY", title: "Maitama Presidential Hilltop Mansion", continent: "Africa", city: "Maitama, Abuja, Nigeria", priceUSD: 1950000, beds: 7, baths: 8, sqm: 1050, mainImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80", description: "Expansive Diplomatic Zone residence in Maitama featuring bulletproof glazing, 2-bedroom guest chalet, manicured gardens, and AGIS verified title deed.", amenities: ["Diplomatic Zone", "Guest Chalet", "AGIS Verified", "Smart Automation", "8-Car Garage"] },
-      { id: "TN-BUY-03", category: "BUY", title: "Kensington Royal Freehold Townhouse", continent: "Europe", city: "Kensington, London, UK", priceUSD: 4950000, beds: 5, baths: 5, sqm: 540, mainImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80", description: "Classic white-stucco freehold residence moments from Hyde Park with bespoke Italian marble kitchen, subterranean wine cellar, and landscaped courtyard.", amenities: ["Freehold Deed", "Wine Cellar", "Private Garden", "Underfloor Heat", "24/7 Concierge"] },
-      { id: "TN-BUY-04", category: "BUY", title: "Palm Jumeirah Signature Beach Villa", continent: "Asia", city: "Palm Jumeirah, Dubai, UAE", priceUSD: 6200000, beds: 6, baths: 7, sqm: 860, mainImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80", description: "Direct private beach villa on Palm Jumeirah with Atlantis skyline views, temperature-controlled pool, and Dubai Land Department title verification.", amenities: ["Private Beach", "Golden Visa Eligible", "Rooftop Deck", "Maid Quarters", "DLD Verified"] },
-      { id: "TN-BUY-05", category: "BUY", title: "Beverly Hills Glass Horizon Estate", continent: "North America", city: "Beverly Hills, California, USA", priceUSD: 5400000, beds: 5, baths: 6, sqm: 710, mainImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80", description: "Architectural glass compound overlooking Los Angeles to the Pacific Ocean with zero-edge infinity pool, wellness spa, and gated motor court.", amenities: ["Ocean Views", "Zero-Edge Pool", "Wellness Spa", "Gated Entry", "Chef Kitchen"] },
+      { id: "TN-BUY-01", category: "BUY", title: "The Sovereign Banana Island Villa", continent: "Africa", city: "Banana Island, Lagos, Nigeria", priceUSD: 50000, beds: 6, baths: 4, sqm: 920, mainImage: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=80", description: "Waterfront 6-bedroom detached luxury villa in Banana Island with private boat jetty, cinema lounge, elevator, solar microgrid, and Federal Certificate of Occupancy.", amenities: ["Private Jetty", "Infinity Pool", "Federal C of O", "Home Cinema", "Solar Power"] },
+      { id: "TN-BUY-02", category: "BUY", title: "Maitama Presidential Hilltop Mansion", continent: "Africa", city: "Maitama, Abuja, Nigeria", priceUSD: 190000, beds: 7, baths: 8, sqm: 1050, mainImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80", description: "Expansive Diplomatic Zone residence in Maitama featuring bulletproof glazing, 2-bedroom guest chalet, manicured gardens, and AGIS verified title deed.", amenities: ["Diplomatic Zone", "Guest Chalet", "AGIS Verified", "Smart Automation", "8-Car Garage"] },
+      { id: "TN-BUY-03", category: "BUY", title: "Kensington Royal Freehold Townhouse", continent: "Europe", city: "Kensington, London, UK", priceUSD: 100000, beds: 5, baths: 5, sqm: 540, mainImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80", description: "Classic white-stucco freehold residence moments from Hyde Park with bespoke Italian marble kitchen, subterranean wine cellar, and landscaped courtyard.", amenities: ["Freehold Deed", "Wine Cellar", "Private Garden", "Underfloor Heat", "24/7 Concierge"] },
+      { id: "TN-BUY-04", category: "BUY", title: "Palm Jumeirah Signature Beach Villa", continent: "Asia", city: "Palm Jumeirah, Dubai, UAE", priceUSD: 30000, beds: 6, baths: 7, sqm: 860, mainImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80", description: "Direct private beach villa on Palm Jumeirah with Atlantis skyline views, temperature-controlled pool, and Dubai Land Department title verification.", amenities: ["Private Beach", "Golden Visa Eligible", "Rooftop Deck", "Maid Quarters", "DLD Verified"] },
+      { id: "TN-BUY-05", category: "BUY", title: "Beverly Hills Glass Horizon Estate", continent: "North America", city: "Beverly Hills, California, USA", priceUSD: 40000, beds: 5, baths: 6, sqm: 710, mainImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80", description: "Architectural glass compound overlooking Los Angeles to the Pacific Ocean with zero-edge infinity pool, wellness spa, and gated motor court.", amenities: ["Ocean Views", "Zero-Edge Pool", "Wellness Spa", "Gated Entry", "Chef Kitchen"] },
 
       // ==================== BUY SECTION: PAGE 2 (5 HOMES) ====================
-      { id: "TN-BUY-06", category: "BUY", title: "Lekki Phase 1 Waterfront Smart Duplex", continent: "Africa", city: "Lekki Phase 1, Lagos, Nigeria", priceUSD: 780000, beds: 5, baths: 6, sqm: 520, mainImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80", description: "Contemporary 5-bedroom fully detached smart home in Lekki Phase 1 with rooftop lounge, swimming pool, fitted Bosch kitchen, and Governor's Consent.", amenities: ["Governor's Consent", "Swimming Pool", "Rooftop Lounge", "Smart Locks", "24/7 Estate Power"] },
-      { id: "TN-BUY-07", category: "BUY", title: "Camps Bay Twelve Apostles Ocean Villa", continent: "Africa", city: "Camps Bay, Cape Town, South Africa", priceUSD: 2450000, beds: 5, baths: 5, sqm: 610, mainImage: "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=900&q=80", description: "Elevated coastal sanctuary beneath Table Mountain with panoramic Atlantic sunset views, solar inverter backup, and rim-flow pool.", amenities: ["Atlantic Views", "Solar Backup", "Rim-Flow Pool", "Wine Room", "Armed Response"] },
-      { id: "TN-BUY-08", category: "BUY", title: "East Legon Ambassadorial Residence", continent: "Africa", city: "East Legon, Accra, Ghana", priceUSD: 920000, beds: 5, baths: 6, sqm: 580, mainImage: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80", description: "Prestigious gated residence in Accra's prime diplomatic enclave featuring double-height ceilings, pool house, and Lands Commission verified title.", amenities: ["Lands Commission Title", "Pool House", "Backup Generator", "Security Post", "Fitted Kitchen"] },
-      { id: "TN-BUY-09", category: "BUY", title: "Marbella Golden Mile Andalusian Villa", continent: "Europe", city: "Marbella, Costa del Sol, Spain", priceUSD: 3650000, beds: 6, baths: 6, sqm: 740, mainImage: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=900&q=80", description: "Sun-drenched Mediterranean estate with private tennis court, tropical gardens, heated saltwater pool, and Spanish Nota Simple registry clearance.", amenities: ["Tennis Court", "Saltwater Pool", "Sea Views", "Guest Suite", "Nota Simple Verified"] },
-      { id: "TN-BUY-10", category: "BUY", title: "Coral Gables Waterfront Yacht Mansion", continent: "North America", city: "Coral Gables, Miami, Florida, USA", priceUSD: 4800000, beds: 6, baths: 7, sqm: 790, mainImage: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=900&q=80", description: "Deep-water canal estate with 80-foot private yacht dockage, summer outdoor kitchen, hurricane-impact glass, and resort pool.", amenities: ["80ft Yacht Dock", "Impact Glass", "Summer Kitchen", "Resort Pool", "3-Car Garage"] },
+      { id: "TN-BUY-06", category: "BUY", title: "Lekki Phase 1 Waterfront Smart Duplex", continent: "Africa", city: "Lekki Phase 1, Lagos, Nigeria", priceUSD: 41000, beds: 2, baths: 8, sqm: 520, mainImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80", description: "Contemporary 5-bedroom fully detached smart home in Lekki Phase 1 with rooftop lounge, swimming pool, fitted Bosch kitchen, and Governor's Consent.", amenities: ["Governor's Consent", "Swimming Pool", "Rooftop Lounge", "Smart Locks", "24/7 Estate Power"] },
+      { id: "TN-BUY-07", category: "BUY", title: "Camps Bay Twelve Apostles Ocean Villa", continent: "Africa", city: "Camps Bay, Cape Town, South Africa", priceUSD: 25000, beds: 1, baths: 9, sqm: 610, mainImage: "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=900&q=80", description: "Elevated coastal sanctuary beneath Table Mountain with panoramic Atlantic sunset views, solar inverter backup, and rim-flow pool.", amenities: ["Atlantic Views", "Solar Backup", "Rim-Flow Pool", "Wine Room", "Armed Response"] },
+      { id: "TN-BUY-08", category: "BUY", title: "East Legon Ambassadorial Residence", continent: "Africa", city: "East Legon, Accra, Ghana", priceUSD: 92500, beds: 5, baths: 6, sqm: 580, mainImage: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80", description: "Prestigious gated residence in Accra's prime diplomatic enclave featuring double-height ceilings, pool house, and Lands Commission verified title.", amenities: ["Lands Commission Title", "Pool House", "Backup Generator", "Security Post", "Fitted Kitchen"] },
+      { id: "TN-BUY-09", category: "BUY", title: "Marbella Golden Mile Andalusian Villa", continent: "Europe", city: "Marbella, Costa del Sol, Spain", priceUSD: 25000, beds: 6, baths: 6, sqm: 740, mainImage: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=900&q=80", description: "Sun-drenched Mediterranean estate with private tennis court, tropical gardens, heated saltwater pool, and Spanish Nota Simple registry clearance.", amenities: ["Tennis Court", "Saltwater Pool", "Sea Views", "Guest Suite", "Nota Simple Verified"] },
+      { id: "TN-BUY-10", category: "BUY", title: "Coral Gables Waterfront Yacht Mansion", continent: "North America", city: "Coral Gables, Miami, Florida, USA", priceUSD: 48000, beds: 6, baths: 7, sqm: 790, mainImage: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=900&q=80", description: "Deep-water canal estate with 80-foot private yacht dockage, summer outdoor kitchen, hurricane-impact glass, and resort pool.", amenities: ["80ft Yacht Dock", "Impact Glass", "Summer Kitchen", "Resort Pool", "3-Car Garage"] },
 
       // ==================== BUY SECTION: PAGE 3 (5 HOMES) ====================
-      { id: "TN-BUY-11", category: "BUY", title: "Karen Forest Contemporary Country Home", continent: "Africa", city: "Karen, Nairobi, Kenya", priceUSD: 1150000, beds: 5, baths: 5, sqm: 640, mainImage: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80", description: "Serene half-acre forested estate in Karen featuring floor-to-ceiling timber-framed glass, borehole water independence, and Kenyan Ministry of Lands title.", amenities: ["Half-Acre Plot", "Borehole & Solar", "Staff Quarters", "Fireplace Lounge", "Title Verified"] },
-      { id: "TN-BUY-12", category: "BUY", title: "Asokoro Summit Diplomatic Villa", continent: "Africa", city: "Asokoro, Abuja, Nigeria", priceUSD: 1650000, beds: 6, baths: 7, sqm: 810, mainImage: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80", description: "Elevated hilltop residence in Asokoro offering panoramic Abuja city views, private elevator, cinema room, and verified C of O.", amenities: ["Hilltop Views", "Private Lift", "Cinema Room", "C of O Verified", "Security Gatehouse"] },
-      { id: "TN-BUY-13", category: "BUY", title: "Sentosa Cove Waterfront Sanctuary", continent: "Asia", city: "Sentosa Island, Singapore", priceUSD: 7400000, beds: 5, baths: 6, sqm: 680, mainImage: "https://images.unsplash.com/photo-1576941089067-2de3c901e126?auto=format&fit=crop&w=900&q=80", description: "Rare marina-front residence in Sentosa Cove with private yacht berth, rooftop sky jacuzzi, and Singapore Land Authority title clearance.", amenities: ["Marina Berth", "Sky Jacuzzi", "SLA Verified", "Smart Home", "24/7 Guarded"] },
-      { id: "TN-BUY-14", category: "BUY", title: "Jardins Skyline Duplex Penthouse", continent: "South America", city: "Jardins, São Paulo, Brazil", priceUSD: 1450000, beds: 4, baths: 5, sqm: 430, mainImage: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=900&q=80", description: "Designer duplex residence in São Paulo's premier district with biometric lift access, gourmet terrace, and full Matrícula registry clearance.", amenities: ["Biometric Lift", "Gourmet Terrace", "Heated Lap Pool", "Valet Parking", "Matrícula Verified"] },
-      { id: "TN-BUY-15", category: "BUY", title: "Point Piper Harbourfront Residence", continent: "Oceania", city: "Point Piper, Sydney, Australia", priceUSD: 5850000, beds: 4, baths: 4, sqm: 460, mainImage: "https://images.unsplash.com/photo-1598228723793-52759bba239c?auto=format&fit=crop&w=900&q=80", description: "Uninterrupted Sydney Harbour Bridge and Opera House views from an exclusive boutique residence with private marina access.", amenities: ["Harbour Views", "Marina Access", "Gaggenau Kitchen", "Wine Cellar", "Torrens Title"] },
+      { id: "TN-BUY-11", category: "BUY", title: "Karen Forest Contemporary Country Home", continent: "Africa", city: "Karen, Nairobi, Kenya", priceUSD: 110000, beds: 5, baths: 5, sqm: 640, mainImage: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80", description: "Serene half-acre forested estate in Karen featuring floor-to-ceiling timber-framed glass, borehole water independence, and Kenyan Ministry of Lands title.", amenities: ["Half-Acre Plot", "Borehole & Solar", "Staff Quarters", "Fireplace Lounge", "Title Verified"] },
+      { id: "TN-BUY-12", category: "BUY", title: "Asokoro Summit Diplomatic Villa", continent: "Africa", city: "Asokoro, Abuja, Nigeria", priceUSD: 650000, beds: 6, baths: 7, sqm: 810, mainImage: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80", description: "Elevated hilltop residence in Asokoro offering panoramic Abuja city views, private elevator, cinema room, and verified C of O.", amenities: ["Hilltop Views", "Private Lift", "Cinema Room", "C of O Verified", "Security Gatehouse"] },
+      { id: "TN-BUY-13", category: "BUY", title: "Sentosa Cove Waterfront Sanctuary", continent: "Asia", city: "Sentosa Island, Singapore", priceUSD: 40000, beds: 5, baths: 6, sqm: 680, mainImage: "https://images.unsplash.com/photo-1576941089067-2de3c901e126?auto=format&fit=crop&w=900&q=80", description: "Rare marina-front residence in Sentosa Cove with private yacht berth, rooftop sky jacuzzi, and Singapore Land Authority title clearance.", amenities: ["Marina Berth", "Sky Jacuzzi", "SLA Verified", "Smart Home", "24/7 Guarded"] },
+      { id: "TN-BUY-14", category: "BUY", title: "Jardins Skyline Duplex Penthouse", continent: "South America", city: "Jardins, São Paulo, Brazil", priceUSD: 510000, beds: 4, baths: 5, sqm: 430, mainImage: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=900&q=80", description: "Designer duplex residence in São Paulo's premier district with biometric lift access, gourmet terrace, and full Matrícula registry clearance.", amenities: ["Biometric Lift", "Gourmet Terrace", "Heated Lap Pool", "Valet Parking", "Matrícula Verified"] },
+      { id: "TN-BUY-15", category: "BUY", title: "Point Piper Harbourfront Residence", continent: "Oceania", city: "Point Piper, Sydney, Australia", priceUSD: 850000, beds: 4, baths: 4, sqm: 460, mainImage: "https://images.unsplash.com/photo-1598228723793-52759bba239c?auto=format&fit=crop&w=900&q=80", description: "Uninterrupted Sydney Harbour Bridge and Opera House views from an exclusive boutique residence with private marina access.", amenities: ["Harbour Views", "Marina Access", "Gaggenau Kitchen", "Wine Cellar", "Torrens Title"] },
 
       // ==================== BUY SECTION: PAGE 4 (5 HOMES) ====================
-      { id: "TN-BUY-16", category: "BUY", title: "Ikoyi Parkview Luxury Detached Villa", continent: "Africa", city: "Parkview Estate, Ikoyi, Lagos", priceUSD: 1480000, beds: 5, baths: 6, sqm: 600, mainImage: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?auto=format&fit=crop&w=900&q=80", description: "Newly completed contemporary 5-bedroom villa inside gated Parkview Estate Ikoyi with private pool, BQ, and Lagos State C of O.", amenities: ["Parkview Estate", "Private Pool", "2-Room BQ", "C of O Verified", "Fitted Smart Kitchen"] },
-      { id: "TN-BUY-17", category: "BUY", title: "Lake Como Bellagio Panorama Villa", continent: "Europe", city: "Bellagio, Lake Como, Italy", priceUSD: 4100000, beds: 5, baths: 5, sqm: 550, mainImage: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=900&q=80", description: "Historic lakeside villa restored to ultra-modern luxury standards with terraced olive gardens and private boat mooring.", amenities: ["Lake Como Frontage", "Boat Mooring", "Olive Gardens", "Wine Vault", "Catasto Verified"] },
-      { id: "TN-BUY-18", category: "BUY", title: "Bridle Path Grand Georgian Estate", continent: "North America", city: "North York, Toronto, Canada", priceUSD: 4350000, beds: 6, baths: 7, sqm: 850, mainImage: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80", description: "Limestone manor on Toronto's prestigious Bridle Path featuring indoor lap pool, home theater, heated driveway, and Ontario Land Registry deed.", amenities: ["Indoor Lap Pool", "Heated Driveway", "Home Theater", "Limestone Facade", "Title Insured"] },
-      { id: "TN-BUY-19", category: "BUY", title: "Uluwatu Cliffside Oceanfront Villa", continent: "Asia", city: "Uluwatu, Bali, Indonesia", priceUSD: 1380000, beds: 4, baths: 5, sqm: 510, mainImage: "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?auto=format&fit=crop&w=900&q=80", description: "Dramatic Indian Ocean cliff-edge architectural villa with glass-bottom infinity pool, sunken sunset firepit, and Hak Milik / PMA legal clearance.", amenities: ["Cliffside Ocean View", "Infinity Pool", "Sunken Firepit", "Spa Pavilion", "Legal PMA Title"] },
-      { id: "TN-BUY-20", category: "BUY", title: "Kigali Nyarutarama Golf View Villa", continent: "Africa", city: "Nyarutarama, Kigali, Rwanda", priceUSD: 890000, beds: 5, baths: 5, sqm: 530, mainImage: "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=900&q=80", description: "Modern eco-luxury residence overlooking Kigali Golf Course with solar energy autonomy, landscaped terrace, and Rwanda Land Authority title.", amenities: ["Golf Course View", "Solar Autonomy", "RLA Title Verified", "Gated Security", "Panoramic Terrace"] },
+      { id: "TN-BUY-16", category: "BUY", title: "Ikoyi Parkview Luxury Detached Villa", continent: "Africa", city: "Parkview Estate, Ikoyi, Lagos", priceUSD: 80000, beds: 5, baths: 6, sqm: 600, mainImage: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?auto=format&fit=crop&w=900&q=80", description: "Newly completed contemporary 5-bedroom villa inside gated Parkview Estate Ikoyi with private pool, BQ, and Lagos State C of O.", amenities: ["Parkview Estate", "Private Pool", "2-Room BQ", "C of O Verified", "Fitted Smart Kitchen"] },
+      { id: "TN-BUY-17", category: "BUY", title: "Lake Como Bellagio Panorama Villa", continent: "Europe", city: "Bellagio, Lake Como, Italy", priceUSD: 41000, beds: 5, baths: 5, sqm: 550, mainImage: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=900&q=80", description: "Historic lakeside villa restored to ultra-modern luxury standards with terraced olive gardens and private boat mooring.", amenities: ["Lake Como Frontage", "Boat Mooring", "Olive Gardens", "Wine Vault", "Catasto Verified"] },
+      { id: "TN-BUY-18", category: "BUY", title: "Bridle Path Grand Georgian Estate", continent: "North America", city: "North York, Toronto, Canada", priceUSD: 50000, beds: 6, baths: 7, sqm: 850, mainImage: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80", description: "Limestone manor on Toronto's prestigious Bridle Path featuring indoor lap pool, home theater, heated driveway, and Ontario Land Registry deed.", amenities: ["Indoor Lap Pool", "Heated Driveway", "Home Theater", "Limestone Facade", "Title Insured"] },
+      { id: "TN-BUY-19", category: "BUY", title: "Uluwatu Cliffside Oceanfront Villa", continent: "Asia", city: "Uluwatu, Bali, Indonesia", priceUSD: 80000, beds: 4, baths: 5, sqm: 510, mainImage: "https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?auto=format&fit=crop&w=900&q=80", description: "Dramatic Indian Ocean cliff-edge architectural villa with glass-bottom infinity pool, sunken sunset firepit, and Hak Milik / PMA legal clearance.", amenities: ["Cliffside Ocean View", "Infinity Pool", "Sunken Firepit", "Spa Pavilion", "Legal PMA Title"] },
+      { id: "TN-BUY-20", category: "BUY", title: "Kigali Nyarutarama Golf View Villa", continent: "Africa", city: "Nyarutarama, Kigali, Rwanda", priceUSD: 90000, beds: 5, baths: 5, sqm: 530, mainImage: "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=900&q=80", description: "Modern eco-luxury residence overlooking Kigali Golf Course with solar energy autonomy, landscaped terrace, and Rwanda Land Authority title.", amenities: ["Golf Course View", "Solar Autonomy", "RLA Title Verified", "Gated Security", "Panoramic Terrace"] },
 
       // ==================== RENT SECTION: PAGE 1 (5 HOMES) ====================
       { id: "TN-RNT-01", category: "RENT", title: "Eko Atlantic Oceanfront Sky Apartment", continent: "Africa", city: "Eko Atlantic, Victoria Island, Lagos", priceUSD: 6500, beds: 4, baths: 5, sqm: 420, mainImage: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80", description: "Ultra-luxury high-rise apartment overlooking the Atlantic Ocean in Eko Atlantic City with 24/7 uninterrupted power, infinity pool, and concierge.", amenities: ["24/7 Power & Water", "Ocean Balcony", "Concierge Desk", "Residents Gym", "3 Parking Bays"] },
@@ -2175,9 +2270,9 @@
       { id: "TN-RNT-10", category: "RENT", title: "Manhattan Tribeca Cast-Iron Loft", continent: "North America", city: "Tribeca, New York, USA", priceUSD: 16500, beds: 3, baths: 3, sqm: 325, mainImage: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?auto=format&fit=crop&w=900&q=80", description: "Keyed-elevator full-floor Tribeca loft with 13-foot ceilings, chef's Wolf & Sub-Zero kitchen, and landscaped roof deck.", amenities: ["Keyed Elevator", "13ft Ceilings", "Roof Deck", "24hr Doorman", "Wine Fridge"] },
 
       // ==================== RENT SECTION: PAGE 3 (5 HOMES) ====================
-      { id: "TN-RNT-11", category: "RENT", title: "Kilimani Skybridge Luxury Apartment", continent: "Africa", city: "Kilimani, Nairobi, Kenya", priceUSD: 2600, beds: 3, baths: 3, sqm: 240, mainImage: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80", description: "Modern serviced residence in Nairobi with heated rooftop pool, sky lounge, borehole water, and full backup power.", amenities: ["Heated Sky Pool", "Borehole & Power", "Gym & Steam Room", "CCTV & Guard", "Furnished Option"] },
-      { id: "TN-RNT-12", category: "RENT", title: "GRA Ikeja Gated Luxury Terrace Home", continent: "Africa", city: "Ikeja GRA, Lagos, Nigeria", priceUSD: 3500, beds: 4, baths: 5, sqm: 350, mainImage: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80", description: "Executive 4-bedroom terrace duplex in serene Ikeja GRA, 10 minutes from Murtala Muhammed International Airport.", amenities: ["10 Mins to Airport", "Gated Mini-Estate", "24/7 Power", "Fitted Kitchen", "BQ Included"] },
-      { id: "TN-RNT-13", category: "RENT", title: "Marina Bay Sands Skyline Residence", continent: "Asia", city: "Marina Bay, Singapore", priceUSD: 10800, beds: 3, baths: 3, sqm: 260, mainImage: "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?auto=format&fit=crop&w=900&q=80", description: "Iconic waterfront apartment overlooking Marina Bay with private sky garden, tennis courts, and direct MRT connection.", amenities: ["Marina Bay View", "Sky Garden", "Tennis Courts", "24hr Concierge", "Smart Climate"] },
+      { id: "TN-RNT-11", category: "RENT", title: "Kilimani Skybridge Luxury Apartment", continent: "Africa", city: "Kilimani, Nairobi, Kenya", priceUSD: 4600, beds: 3, baths: 3, sqm: 240, mainImage: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80", description: "Modern serviced residence in Nairobi with heated rooftop pool, sky lounge, borehole water, and full backup power.", amenities: ["Heated Sky Pool", "Borehole & Power", "Gym & Steam Room", "CCTV & Guard", "Furnished Option"] },
+      { id: "TN-RNT-12", category: "RENT", title: "GRA Ikeja Gated Luxury Terrace Home", continent: "Africa", city: "Ikeja GRA, Lagos, Nigeria", priceUSD: 5000, beds: 4, baths: 5, sqm: 350, mainImage: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80", description: "Executive 4-bedroom terrace duplex in serene Ikeja GRA, 10 minutes from Murtala Muhammed International Airport.", amenities: ["10 Mins to Airport", "Gated Mini-Estate", "24/7 Power", "Fitted Kitchen", "BQ Included"] },
+      { id: "TN-RNT-13", category: "RENT", title: "Marina Bay Sands Skyline Residence", continent: "Asia", city: "Marina Bay, Singapore", priceUSD: 900, beds: 3, baths: 3, sqm: 260, mainImage: "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?auto=format&fit=crop&w=900&q=80", description: "Iconic waterfront apartment overlooking Marina Bay with private sky garden, tennis courts, and direct MRT connection.", amenities: ["Marina Bay View", "Sky Garden", "Tennis Courts", "24hr Concierge", "Smart Climate"] },
       { id: "TN-RNT-14", category: "RENT", title: "Ipanema Beachfront Glass Apartment", continent: "South America", city: "Ipanema, Rio de Janeiro, Brazil", priceUSD: 5900, beds: 3, baths: 4, sqm: 285, mainImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80", description: "Direct oceanfront residence on Vieira Souto Avenue with panoramic Ipanema Beach views and 24-hour armored security lobby.", amenities: ["Beachfront", "24hr Security", "Ocean Balcony", "Valet Garage", "Modern Kitchen"] },
       { id: "TN-RNT-15", category: "RENT", title: "Bondi Beach Pacific Horizon Penthouse", continent: "Oceania", city: "Bondi Beach, Sydney, Australia", priceUSD: 8400, beds: 3, baths: 3, sqm: 270, mainImage: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=900&q=80", description: "Sun-drenched coastal penthouse steps from Bondi Beach with private plunge pool, outdoor BBQ terrace, and secure lift.", amenities: ["Ocean Views", "Plunge Pool", "BBQ Terrace", "Secure Lift", "2 Car Spaces"] },
 
